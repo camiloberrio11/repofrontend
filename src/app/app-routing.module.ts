@@ -12,7 +12,7 @@ import { CONTENT_ROUTES } from "./shared/routes/content-layout.routes";
 const appRoutes: Routes = [
   {
     path: "",
-    redirectTo: "pages/login",
+    redirectTo: "pages/home",
     pathMatch: "full",
   },
   {
