@@ -30,6 +30,8 @@ import { TopMenuDirective } from './directives/topmenu.directive';
 import { TopMenuLinkDirective } from './directives/topmenu-link.directive';
 import { TopMenuDropdownDirective } from './directives/topmenu-dropdown.directive';
 import { TopMenuAnchorToggleDirective } from './directives/topmenu-anchor-toggle.directive';
+import { FormPqrsFindComponent } from './pqrs/form-pqrs-find/form-pqrs-find.component';
+import { FormPqrsCreateComponent } from './pqrs/form-pqrs-create/form-pqrs-create.component';
 
 
 @NgModule({
@@ -45,6 +47,8 @@ import { TopMenuAnchorToggleDirective } from './directives/topmenu-anchor-toggle
         SidebarDirective,
         TopMenuDirective,
         NgbModule,
+        FormPqrsCreateComponent,
+        FormPqrsFindComponent
         // TranslateModule,
     ],
     imports: [
@@ -76,6 +80,8 @@ import { TopMenuAnchorToggleDirective } from './directives/topmenu-anchor-toggle
         TopMenuDropdownDirective,
         TopMenuAnchorToggleDirective,
         TopMenuDirective,
+        FormPqrsFindComponent,
+        FormPqrsCreateComponent,
     ]
 })
 export class SharedModule { }

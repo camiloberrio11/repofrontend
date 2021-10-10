@@ -9,6 +9,7 @@ import { ContentPagesRoutingModule } from "./content-pages-routing.module";
 import { ErrorPageComponent } from "./error/error-page.component";
 import { LoginPageComponent } from "./login/login-page.component";
 import { HomeComponent } from './home/home.component';
+import { SharedModule } from 'app/shared/shared.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HomeComponent } from './home/home.component';
         FormsModule ,
         ReactiveFormsModule,
         NgbModule,
-        NgxSpinnerModule
+        NgxSpinnerModule,
+        SharedModule
     ],
     declarations: [
         ErrorPageComponent,
