@@ -3,14 +3,6 @@ import { RouteInfo } from './vertical-menu.metadata';
 //Sidebar menu Routes and data
 export const ROUTES: RouteInfo[] = [
   {
-    path: "/page",
-    title: "Page",
-    icon: "ft-home",
-    class: "dropdown nav-item",
-    isExternalLink: false,
-    submenu: [],
-  },
-  {
     path: "/dashboard",
     title: "Tablero",
     icon: "ft-home",

@@ -4,10 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 export const Full_ROUTES: Routes = [
   {
-    path: 'page',
-    loadChildren: () => import('../../page/page.module').then(m => m.PageModule)
-  },
-  {
     path: 'dashboard',
     loadChildren: () => import('../../full-layout/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
