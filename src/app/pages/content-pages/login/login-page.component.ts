@@ -1,7 +1,6 @@
 import { Component, ViewChild } from "@angular/core";
 import { NgForm, FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
-// import { AuthService } from 'app/shared/auth/auth.service';
 import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
@@ -21,7 +20,7 @@ export class LoginPageComponent {
 
   constructor(
     private router: Router,
-    // private authService: AuthService,
+
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute
   ) {}
@@ -40,21 +39,8 @@ export class LoginPageComponent {
     setTimeout(() => {
       this.spinner.hide();
       console.log('Termine')
-        this.router.navigate(["/page"]);
+        this.router.navigate(["/dashboard"]);
 
-    }, 5000);
-
-
-    // this.authService
-    //   .signinUser(this.loginForm.value.username, this.loginForm.value.password)
-    //   .then((res) => {
-    //     this.spinner.hide();
-    //     this.router.navigate(["/page"]);
-    //   })
-    //   .catch((err) => {
-    //     this.isLoginFailed = true;
-    //     this.spinner.hide();
-    //     console.log("error: " + err);
-    //   });
+    }, 1000);
   }
 }
