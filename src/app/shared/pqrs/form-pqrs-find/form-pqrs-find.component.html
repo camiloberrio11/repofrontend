@@ -1,4 +1,5 @@
 <!-- Information content starts -->
+<ngx-spinner></ngx-spinner>
 <div class="mt-2" id="information">
   <!-- Information form starts -->
   <form [formGroup]="formFindPqr">
@@ -48,6 +49,6 @@
 </div>
 <!-- Information content ends -->
 
-<div class="result">
-  <app-card-result-pqrs></app-card-result-pqrs>
+<div class="result" *ngIf="requestPqrsFind">
+  <app-card-result-pqrs [pqr]="requestPqrsFind"></app-card-result-pqrs>
 </div>

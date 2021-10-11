@@ -26,7 +26,7 @@ export interface ResponseCreatePqr {
 export interface ResponseGetRequestByCode {
   ok: boolean;
   message: string;
-  data?: RequestPqrs;
+  data?: RequestPqrsPopulate;
 }
 
 export interface RequestPqrs {
@@ -53,4 +53,41 @@ export interface RequestPqrs {
   EmailSender: string;
   PhoneSender: string;
   __v: number;
+}
+
+export interface RequestPqrsPopulate {
+  _id: string;
+  CodeRequestType: FieldGeneralCode;
+  CodeRequestSubtype: FieldGeneralCode;
+  Consecutive: number;
+  Id: string;
+  AssignedUser?: any;
+  Finally: boolean;
+  AttachmentOne: string;
+  AttachmentTwo: string;
+  AttachmentThree: string;
+  EventDate: string;
+  SideVehicle: string;
+  IdVehicle: string;
+  Detail: string;
+  Origin: FieldGeneral;
+  Departure: FieldGeneral;
+  DocumentTypeSender: FieldGeneral;
+  IdSender: string;
+  NameSender: string;
+  AddressSender: string;
+  EmailSender: string;
+  PhoneSender: string;
+  __v: number;
+}
+
+interface FieldGeneral {
+  _id: string;
+  Name: string;
+}
+
+interface FieldGeneralCode {
+  _id: string;
+  Name: string;
+  Code: string;
 }

@@ -4,6 +4,7 @@ import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { ResponseJourney } from '../models/Journey';
 import { BodyRequestCreatePqr, ResponseCreatePqr, ResponseGetRequestByCode } from '../models/RequestPqrs';
+import { ResponseGetByIdRequest } from '../models/ResponseRequest';
 import { ResponseTypeDocument } from '../models/TypeDocument';
 import { ResponseTypeRequest } from '../models/TypeRequest';
 
@@ -36,6 +37,10 @@ export class PqrApiService {
 
   getPqrByCodes(codePqrs: string, idSender: string): Observable<ResponseGetRequestByCode> {
     return this.http.get<ResponseGetRequestByCode>(`${environment?.urlApi}/api/request/${codePqrs}/${idSender}`);
+  }
+
+  getRepsonseByIdRequest(idRequest: string): Observable<ResponseGetByIdRequest> {
+    return this.http.get<ResponseGetByIdRequest>(`${environment?.urlApi}/api/response/${idRequest}`);
   }
 
 
