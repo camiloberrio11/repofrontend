@@ -1,3 +1,47 @@
-<p>home works!</p>
+<!-- <p>home works!</p>
 <app-form-pqrs-create></app-form-pqrs-create>
-<app-form-pqrs-find></app-form-pqrs-find>
+<app-form-pqrs-find></app-form-pqrs-find> -->
+
+    <section class="users-edit">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-body">
+                <!-- Nav-tabs -->
+                <ul
+                  ngbNav
+                  #nav="ngbNav"
+                  [activeId]="1"
+                  class="nav-tabs justify-content-left"
+                >
+                  <li [ngbNavItem]="1">
+                    <a ngbNavLink class="nav-link d-flex align-items-center">
+                      <i class="ft-user mr-1"></i>
+                      <span class="d-none d-sm-block">Account</span>
+                    </a>
+                    <ng-template ngbNavContent>
+                    <app-form-pqrs-create></app-form-pqrs-create>
+                    </ng-template>
+                  </li>
+                  <li [ngbNavItem]="2">
+                    <a ngbNavLink class="nav-link d-flex align-items-center">
+                      <i class="ft-info mr-1"></i>
+                      <span class="d-none d-sm-block">Information</span>
+                    </a>
+                    <ng-template ngbNavContent>
+                  <app-form-pqrs-find></app-form-pqrs-find>
+                    </ng-template>
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div [ngbNavOutlet]="nav"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!--/ Search result section -->

@@ -1,1 +1,303 @@
-<p>form-pqrs-create works!</p>
+  <!-- Account content starts -->
+  <div class="mt-2" id="account">
+    <!-- Media object starts -->
+    <div class="media">
+      <img
+        src="assets/img/portrait/small/avatar-s-2.png"
+        alt="user edit avatar"
+        class="
+          users-avatar-shadow
+          avatar
+          mr-3
+          rounded-circle
+        "
+        height="64"
+        width="64"
+      />
+      <div class="media-body">
+        <h4>Avatar</h4>
+        <div
+          class="
+            d-flex
+            flex-sm-row flex-column
+            justify-content-start
+            px-0
+            mb-sm-2
+          "
+        >
+          <button
+            class="btn btn-sm btn-primary mb-1 mb-sm-0"
+          >
+            Change
+          </button>
+          <button
+            class="btn btn-sm bg-light-secondary ml-sm-2"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Media object ends -->
+
+    <!-- Account form starts -->
+    <form novalidate>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            <div class="controls">
+              <label for="users-edit-username"
+                >Username</label
+              >
+              <input
+                type="text"
+                id="users-edit-username"
+                class="form-control"
+                placeholder="Username"
+                value="dean3004"
+                required
+                aria-invalid="false"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="controls">
+              <label for="users-edit-name">Name</label>
+              <input
+                type="text"
+                id="users-edit-name"
+                class="form-control"
+                placeholder="Name"
+                value="Dean Stanley"
+                required
+                aria-invalid="false"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="controls">
+              <label for="users-edit-email">E-mail</label>
+              <input
+                type="email"
+                id="users-edit-email"
+                class="form-control"
+                placeholder="Email"
+                value="deanstanley@gmail.com"
+                required
+                aria-invalid="false"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="form-group">
+            <div class="controls">
+              <label for="users-edit-role">Role</label>
+              <select
+                id="users-edit-role"
+                class="form-control"
+                required
+              >
+                <option value="">Select Role</option>
+                <option value="1">User</option>
+                <option value="2">Staff</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="controls">
+              <label for="users-edit-status">Status</label>
+              <select
+                id="users-edit-status"
+                class="form-control"
+                required
+              >
+                <option value="">Select Status</option>
+                <option value="1">Active</option>
+                <option value="2">Banned</option>
+                <option value="3">Close</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="controls">
+              <label for="users-edit-company"
+                >Company</label
+              >
+              <input
+                type="text"
+                id="users-edit-company"
+                class="form-control"
+                placeholder="Company Name"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 users-module">
+          <div class="table-responsive">
+            <table class="table mb-0 mt-3">
+              <thead>
+                <tr>
+                  <th>Module Permission</th>
+                  <th>Read</th>
+                  <th>Write</th>
+                  <th>Create</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Users</td>
+                  <td>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        id="users-checkbox1"
+                        checked
+                      />
+                      <label for="users-checkbox1"></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        id="users-checkbox2"
+                      />
+                      <label for="users-checkbox2"></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        id="users-checkbox3"
+                      />
+                      <label for="users-checkbox3"></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        id="users-checkbox4"
+                        checked
+                      />
+                      <label for="users-checkbox4"></label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Articles</td>
+                  <td>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        id="users-checkbox5"
+                      />
+                      <label for="users-checkbox5"></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        id="users-checkbox6"
+                        checked
+                      />
+                      <label for="users-checkbox6"></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        id="users-checkbox7"
+                      />
+                      <label for="users-checkbox7"></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        id="users-checkbox8"
+                        checked
+                      />
+                      <label for="users-checkbox8"></label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Staff</td>
+                  <td>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        id="users-checkbox9"
+                        checked
+                      />
+                      <label for="users-checkbox9"></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        id="users-checkbox10"
+                        checked
+                      />
+                      <label for="users-checkbox10"></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox">
+                      <input
+                        type="checkbox"
+                        id="users-checkbox11"
+                      />
+                      <label for="users-checkbox11"></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox">
+                      <input
+                        type="che  </div>
+                      </section>ckbox"
+                        id="users-checkbox12"
+                      />
+                      <label for="users-checkbox12"></label>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div
+          class="
+            col-12
+            d-flex
+            flex-sm-row flex-column
+            justify-content-end
+            mt-3 mt-sm-2
+          "
+        >
+          <button
+            type="submit"
+            class="btn btn-primary mb-2 mb-sm-0 mr-sm-2"
+          >
+            Save Changes
+          </button>
+          <button type="reset" class="btn btn-secondary">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+    <!-- Account form ends -->
+  </div>
+  <!-- Account content ends -->

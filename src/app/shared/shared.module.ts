@@ -32,6 +32,7 @@ import { TopMenuDropdownDirective } from './directives/topmenu-dropdown.directiv
 import { TopMenuAnchorToggleDirective } from './directives/topmenu-anchor-toggle.directive';
 import { FormPqrsFindComponent } from './pqrs/form-pqrs-find/form-pqrs-find.component';
 import { FormPqrsCreateComponent } from './pqrs/form-pqrs-create/form-pqrs-create.component';
+import { NgSelectModule } from "@ng-select/ng-select";
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { FormPqrsCreateComponent } from './pqrs/form-pqrs-create/form-pqrs-creat
         PerfectScrollbarModule,
         ClickOutsideModule,
         AutocompleteModule,
-        PipeModule
+        PipeModule,
+        NgSelectModule
     ],
     declarations: [
         FooterComponent,
