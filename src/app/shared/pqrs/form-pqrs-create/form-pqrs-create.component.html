@@ -1,267 +1,148 @@
 <ngx-spinner></ngx-spinner>
 <!-- Account content starts -->
-  <div class="mt-2" id="account">
-
-
-    <!-- Account form starts -->
-    <form novalidate>
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <div class="form-group">
-            <div class="controls">
-              <label for="users-edit-username"
-                >Username</label
-              >
-              <input
-                type="text"
-                id="users-edit-username"
-                class="form-control"
-                placeholder="Username"
-                value="dean3004"
-                required
-                aria-invalid="false"
-              />
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="controls">
-              <label for="users-edit-name">Name</label>
-              <input
-                type="text"
-                id="users-edit-name"
-                class="form-control"
-                placeholder="Name"
-                value="Dean Stanley"
-                required
-                aria-invalid="false"
-              />
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="controls">
-              <label for="users-edit-email">E-mail</label>
-              <input
-                type="email"
-                id="users-edit-email"
-                class="form-control"
-                placeholder="Email"
-                value="deanstanley@gmail.com"
-                required
-                aria-invalid="false"
-              />
-            </div>
+<div class="mt-2" id="account">
+  <!-- Account form starts -->
+  <form novalidate>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <div class="controls">
+            <label for="users-edit-role">Tipo de solicitud</label>
+            <select id="users-edit-role" class="form-control" required>
+              <option *ngFor="let doc of listTypeRequest">
+                {{ doc?.Name }}
+              </option>
+            </select>
           </div>
         </div>
-
-        <div class="col-12 col-md-6">
-          <div class="form-group">
-            <div class="controls">
-              <label for="users-edit-role">Tipo de document</label>
-              <select
-                id="users-edit-role"
-                class="form-control"
-                required
-              >
-              <option *ngFor="let doc of listTypeDocument">{{doc?.Name}}</option>
-                <!-- <option value="">Select Role</option>
-                <option value="1">User</option>
-                <option value="2">Staff</option> -->
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="controls">
-              <label for="users-edit-status">Status</label>
-              <select
-                id="users-edit-status"
-                class="form-control"
-                required
-              >
-                <option value="">Select Status</option>
-                <option value="1">Active</option>
-                <option value="2">Banned</option>
-                <option value="3">Close</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="controls">
-              <label for="users-edit-company"
-                >Company</label
-              >
-              <input
-                type="text"
-                id="users-edit-company"
-                class="form-control"
-                placeholder="Company Name"
-              />
-            </div>
+        <div class="form-group">
+          <div class="controls">
+            <label for="users-edit-name">Placa del vehículo</label>
+            <input type="text" class="form-control" />
           </div>
         </div>
-
-        <div class="col-12 users-module">
-          <div class="table-responsive">
-            <table class="table mb-0 mt-3">
-              <thead>
-                <tr>
-                  <th>Module Permission</th>
-                  <th>Read</th>
-                  <th>Write</th>
-                  <th>Create</th>
-                  <th>Delete</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Users</td>
-                  <td>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        id="users-checkbox1"
-                        checked
-                      />
-                      <label for="users-checkbox1"></label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        id="users-checkbox2"
-                      />
-                      <label for="users-checkbox2"></label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        id="users-checkbox3"
-                      />
-                      <label for="users-checkbox3"></label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        id="users-checkbox4"
-                        checked
-                      />
-                      <label for="users-checkbox4"></label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Articles</td>
-                  <td>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        id="users-checkbox5"
-                      />
-                      <label for="users-checkbox5"></label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        id="users-checkbox6"
-                        checked
-                      />
-                      <label for="users-checkbox6"></label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        id="users-checkbox7"
-                      />
-                      <label for="users-checkbox7"></label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        id="users-checkbox8"
-                        checked
-                      />
-                      <label for="users-checkbox8"></label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Staff</td>
-                  <td>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        id="users-checkbox9"
-                        checked
-                      />
-                      <label for="users-checkbox9"></label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        id="users-checkbox10"
-                        checked
-                      />
-                      <label for="users-checkbox10"></label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="checkbox">
-                      <input
-                        type="checkbox"
-                        id="users-checkbox11"
-                      />
-                      <label for="users-checkbox11"></label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="checkbox">
-                      <input
-                        type="che  </div>
-                      </section>ckbox"
-                        id="users-checkbox12"
-                      />
-                      <label for="users-checkbox12"></label>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="form-group">
+          <div class="controls">
+            <label for="users-edit-role">Origen</label>
+            <select id="users-edit-role" class="form-control" required>
+              <option *ngFor="let doc of listOriginJourney">
+                {{ doc?.Name }}
+              </option>
+            </select>
           </div>
         </div>
-
-        <div
-          class="
-            col-12
-            d-flex
-            flex-sm-row flex-column
-            justify-content-end
-            mt-3 mt-sm-2
-          "
-        >
-          <button
-            type="submit"
-            class="btn btn-primary mb-2 mb-sm-0 mr-sm-2"
-          >
-            Save Changes
-          </button>
-          <button type="reset" class="btn btn-secondary">
-            Cancel
-          </button>
+        <div class="form-group">
+          <div class="controls">
+            <label for="users-edit-name">Nombre</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="controls">
+            <label for="users-edit-role">Tipo de documento</label>
+            <select id="users-edit-role" class="form-control" required>
+              <option *ngFor="let doc of listTypeDocument">
+                {{ doc?.Name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="controls">
+            <label for="users-edit-name">Celular</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="controls">
+            <label for="users-edit-name">Adjunto 1</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="controls">
+            <label for="users-edit-name">Adjunto 3</label>
+            <input type="text" class="form-control" />
+          </div>
         </div>
       </div>
-    </form>
-    <!-- Account form ends -->
-  </div>
-  <!-- Account content ends -->
+
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <div class="controls">
+            <label for="users-edit-role">Subtipo de solicitud</label>
+            <select id="users-edit-role" class="form-control" required>
+              <option *ngFor="let doc of listSubtypeRequest">
+                {{ doc?.Name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="controls">
+            <label for="users-edit-name">Lateral del vehículo</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="controls">
+            <label for="users-edit-role">Destino</label>
+            <select id="users-edit-role" class="form-control" required>
+              <option *ngFor="let doc of listDepartureJourney">
+                {{ doc?.Name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="controls">
+            <label for="users-edit-name">Correo</label>
+            <input type="email" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="controls">
+            <label for="users-edit-name">N° de documento</label>
+            <input type="email" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="controls">
+            <label for="users-edit-name">Dirección</label>
+            <input type="email" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="controls">
+            <label for="users-edit-name">Adjunto 2</label>
+            <input type="email" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="controls">
+            <label for="users-edit-name">Suceso </label>
+            <textarea class="form-control"></textarea>
+            <!-- <input type="email" class="form-control" /> -->
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="
+          col-12
+          d-flex
+          flex-sm-row flex-column
+          justify-content-center
+          mt-3 mt-sm-2
+        "
+      >
+        <button type="submit" class="btn btn-primary mb-2 mb-sm-0 mr-sm-2">
+          Crear solicitud
+        </button>
+        <button type="reset" class="btn btn-secondary">Cancelar</button>
+      </div>
+    </div>
+  </form>
+  <!-- Account form ends -->
+</div>
+<!-- Account content ends -->
