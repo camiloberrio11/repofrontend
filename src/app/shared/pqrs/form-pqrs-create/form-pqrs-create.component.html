@@ -1,44 +1,7 @@
-  <!-- Account content starts -->
+<ngx-spinner></ngx-spinner>
+<!-- Account content starts -->
   <div class="mt-2" id="account">
-    <!-- Media object starts -->
-    <div class="media">
-      <img
-        src="assets/img/portrait/small/avatar-s-2.png"
-        alt="user edit avatar"
-        class="
-          users-avatar-shadow
-          avatar
-          mr-3
-          rounded-circle
-        "
-        height="64"
-        width="64"
-      />
-      <div class="media-body">
-        <h4>Avatar</h4>
-        <div
-          class="
-            d-flex
-            flex-sm-row flex-column
-            justify-content-start
-            px-0
-            mb-sm-2
-          "
-        >
-          <button
-            class="btn btn-sm btn-primary mb-1 mb-sm-0"
-          >
-            Change
-          </button>
-          <button
-            class="btn btn-sm bg-light-secondary ml-sm-2"
-          >
-            Reset
-          </button>
-        </div>
-      </div>
-    </div>
-    <!-- Media object ends -->
+
 
     <!-- Account form starts -->
     <form novalidate>
@@ -93,15 +56,16 @@
         <div class="col-12 col-md-6">
           <div class="form-group">
             <div class="controls">
-              <label for="users-edit-role">Role</label>
+              <label for="users-edit-role">Tipo de document</label>
               <select
                 id="users-edit-role"
                 class="form-control"
                 required
               >
-                <option value="">Select Role</option>
+              <option *ngFor="let doc of listTypeDocument">{{doc?.Name}}</option>
+                <!-- <option value="">Select Role</option>
                 <option value="1">User</option>
-                <option value="2">Staff</option>
+                <option value="2">Staff</option> -->
               </select>
             </div>
           </div>

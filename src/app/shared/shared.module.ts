@@ -33,6 +33,7 @@ import { TopMenuAnchorToggleDirective } from './directives/topmenu-anchor-toggle
 import { FormPqrsFindComponent } from './pqrs/form-pqrs-find/form-pqrs-find.component';
 import { FormPqrsCreateComponent } from './pqrs/form-pqrs-create/form-pqrs-create.component';
 import { NgSelectModule } from "@ng-select/ng-select";
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -56,7 +57,7 @@ import { NgSelectModule } from "@ng-select/ng-select";
         RouterModule,
         CommonModule,
         NgbModule,
-        // TranslateModule,
+        NgxSpinnerModule,
         FormsModule,
         OverlayModule,
         ReactiveFormsModule ,
