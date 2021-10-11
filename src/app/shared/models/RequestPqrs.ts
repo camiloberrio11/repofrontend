@@ -22,3 +22,35 @@ export interface ResponseCreatePqr {
   message: string;
   data?: any;
 }
+
+export interface ResponseGetRequestByCode {
+  ok: boolean;
+  message: string;
+  data?: RequestPqrs;
+}
+
+export interface RequestPqrs {
+  _id: string;
+  CodeRequestType: string;
+  CodeRequestSubtype: string;
+  Consecutive: number;
+  Id: string;
+  AssignedUser?: any;
+  Finally: boolean;
+  AttachmentOne: string;
+  AttachmentTwo: string;
+  AttachmentThree: string;
+  EventDate: string;
+  SideVehicle: string;
+  IdVehicle: string;
+  Detail: string;
+  Origin: string;
+  Departure: string;
+  DocumentTypeSender: string;
+  IdSender: string;
+  NameSender: string;
+  AddressSender: string;
+  EmailSender: string;
+  PhoneSender: string;
+  __v: number;
+}

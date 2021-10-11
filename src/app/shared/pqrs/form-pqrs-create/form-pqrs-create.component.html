@@ -70,19 +70,31 @@
         <div class="form-group">
           <div class="controls">
             <label for="users-edit-name">Celular</label>
-            <input type="text" class="form-control" formControlName="phoneSender"/>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="phoneSender"
+            />
           </div>
         </div>
         <div class="form-group">
           <div class="controls">
             <label for="users-edit-name">Adjunto 1</label>
-            <input type="text" class="form-control" formControlName="attachmentOne"/>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="attachmentOne"
+            />
           </div>
         </div>
         <div class="form-group">
           <div class="controls">
             <label for="users-edit-name">Adjunto 3</label>
-            <input type="text" class="form-control" formControlName="attachmentThree" />
+            <input
+              type="text"
+              class="form-control"
+              formControlName="attachmentThree"
+            />
           </div>
         </div>
       </div>
@@ -105,7 +117,11 @@
         <div class="form-group">
           <div class="controls">
             <label for="users-edit-name">Lateral del vehículo</label>
-            <input type="text" class="form-control" formControlName="sideVehicle" />
+            <input
+              type="text"
+              class="form-control"
+              formControlName="sideVehicle"
+            />
           </div>
         </div>
         <div class="form-group">
@@ -128,25 +144,41 @@
         <div class="form-group">
           <div class="controls">
             <label for="users-edit-name">Correo</label>
-            <input type="email" class="form-control" formControlName="emailSender"/>
+            <input
+              type="email"
+              class="form-control"
+              formControlName="emailSender"
+            />
           </div>
         </div>
         <div class="form-group">
           <div class="controls">
             <label for="users-edit-name">N° de documento</label>
-            <input type="email" class="form-control" formControlName="idSender"/>
+            <input
+              type="email"
+              class="form-control"
+              formControlName="idSender"
+            />
           </div>
         </div>
         <div class="form-group">
           <div class="controls">
             <label for="users-edit-name">Dirección</label>
-            <input type="email" class="form-control" formControlName="addressSender" />
+            <input
+              type="email"
+              class="form-control"
+              formControlName="addressSender"
+            />
           </div>
         </div>
         <div class="form-group">
           <div class="controls">
             <label for="users-edit-name">Adjunto 2</label>
-            <input type="email" class="form-control" formControlName="attachmentTwo" />
+            <input
+              type="email"
+              class="form-control"
+              formControlName="attachmentTwo"
+            />
           </div>
         </div>
         <div class="form-group">
@@ -166,7 +198,12 @@
           mt-3 mt-sm-2
         "
       >
-        <button type="submit" class="btn btn-primary mb-2 mb-sm-0 mr-sm-2">
+        <button
+          type="submit"
+          class="btn btn-primary mb-2 mb-sm-0 mr-sm-2"
+          (click)="onSubmit()"
+          [disabled]="formCreatePqr?.invalid"
+        >
           Crear solicitud
         </button>
         <button type="reset" class="btn btn-secondary">Cancelar</button>

@@ -1,11 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Journey } from "app/shared/models/Journey";
+import { BodyRequestCreatePqr } from "app/shared/models/RequestPqrs";
 import { TypeDocument } from "app/shared/models/TypeDocument";
 import { TypeRequest } from "app/shared/models/TypeRequest";
 import { TypeSubrequest } from "app/shared/models/TypeSubrequest";
 import { PqrApiService } from "app/shared/services/pqr-api.service";
 import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: "app-form-pqrs-create",
@@ -22,7 +24,8 @@ export class FormPqrsCreateComponent implements OnInit {
 
   constructor(
     private pqrApi: PqrApiService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +34,39 @@ export class FormPqrsCreateComponent implements OnInit {
     this.getSubtypeRequest();
     this.getJourneys();
     this.buildForm();
+  }
+
+  onSubmit(): void {
+    const values = this.formCreatePqr.value;
+    const body: BodyRequestCreatePqr = {
+      codeRequestType: values?.codeRequestType,
+      codeRequestSubtype: values?.codeRequestSubtype,
+      attachmentOne: values?.attachmentOne,
+      attachmentTwo: values?.attachmentTwo,
+      attachmentThree: values?.attachmentThree,
+      sideVehicle: values?.sideVehicle,
+      idVehicle: values?.idVehicle,
+      detail: values?.detail,
+      origin: values?.origin,
+      departure: values?.departure,
+      documentTypeSender: values?.documentTypeSender,
+      idSender: values?.idSender,
+      nameSender: values?.nameSender,
+      addressSender: values?.addressSender,
+      emailSender: values?.emailSender,
+      phoneSender: values?.phoneSender,
+    };
+    this.spinner.show();
+    this.pqrApi.createPqrs(body).subscribe(
+      (cre) => {
+        this.toastr.success('Se ha creado con éxito tu solicitud');
+        this.spinner.hide();
+      },
+      (err) => {
+        this.toastr.error('Ha ocurrido un error creando tu PQRS');
+        this.spinner.hide();
+      }
+    );
   }
 
   onChange(event: string, formControl: string): void {
@@ -96,21 +132,21 @@ export class FormPqrsCreateComponent implements OnInit {
   private buildForm(): void {
     this.formCreatePqr = new FormGroup({
       codeRequestType: new FormControl("", Validators.required),
-      codeRequestSubtype: new FormControl(""),
-      attachmentOne: new FormControl("", Validators.required),
+      codeRequestSubtype: new FormControl("", Validators.required),
+      attachmentOne: new FormControl(""),
       attachmentTwo: new FormControl(""),
       attachmentThree: new FormControl(""),
       sideVehicle: new FormControl(""),
-      idVehicle: new FormControl("", Validators.required),
+      idVehicle: new FormControl(""),
       detail: new FormControl("", Validators.required),
       origin: new FormControl("", Validators.required),
-      departure: new FormControl(""),
+      departure: new FormControl("", Validators.required),
       documentTypeSender: new FormControl("", Validators.required),
       idSender: new FormControl("", Validators.required),
       nameSender: new FormControl("", Validators.required),
       addressSender: new FormControl("", Validators.required),
       emailSender: new FormControl("", Validators.required),
-      phoneSender: new FormControl(""),
+      phoneSender: new FormControl("", Validators.required),
     });
   }
 }

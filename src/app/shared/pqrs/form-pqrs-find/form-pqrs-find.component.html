@@ -1,57 +1,49 @@
-    <!-- Information content starts -->
-    <div class="mt-2" id="information">
-      <!-- Information form starts -->
-      <form novalidate>
-        <div class="row">
-          <div class="col-12 col-md-6 mb-3 mb-md-0">
+<!-- Information content starts -->
+<div class="mt-2" id="information">
+  <!-- Information form starts -->
+  <form [formGroup]="formFindPqr">
+    <div class="row">
+      <div class="col-12 col-md-6 mb-3 mb-md-0">
+        <div class="form-group">
+          <label for="users-edit-twitter">Código de PQRS</label>
+          <input type="text" class="form-control" formControlName="codePqrs" />
+        </div>
+      </div>
 
-            <div class="form-group">
-              <label for="users-edit-twitter">Código de PQRS</label>
-              <input
-                type="text"
-                class="form-control"
-
-              />
-            </div>
-          </div>
-
-          <div class="col-12 col-md-6 mb-2 mb-md-0">
-            <div class="form-group">
-              <div class="controls position-relative">
-                <label for="users-edit-bday"
-                  >N° de documento</label
-                >
-                <input
-                  type="text"
-                  class="form-control birthdate-picker"
-                />
-              </div>
-            </div>
-
-          </div>
-
-
-          <div
-            class="
-              col-12
-              d-flex
-              justify-content-center
-              flex-sm-row flex-column
-              mt-3 mt-sm-0
-            "
-          >
-            <button
-              type="submit"
-              class="btn btn-primary mb-2 mb-sm-0 mr-sm-2"
-            >
-              Buscar
-            </button>
-            <button type="reset" class="btn btn-secondary">
-              Cancel
-            </button>
+      <div class="col-12 col-md-6 mb-2 mb-md-0">
+        <div class="form-group">
+          <div class="controls position-relative">
+            <label for="users-edit-bday">N° de documento</label>
+            <input
+              type="text"
+              class="form-control birthdate-picker"
+              formControlName="idSender"
+            />
           </div>
         </div>
-      </form>
-      <!-- Information form ends -->
+      </div>
+
+      <div
+        class="
+          col-12
+          d-flex
+          justify-content-center
+          flex-sm-row flex-column
+          mt-3 mt-sm-0
+        "
+      >
+        <button
+          type="submit"
+          class="btn btn-primary mb-2 mb-sm-0 mr-sm-2"
+          (click)="findPqr()"
+          [disabled]="formFindPqr?.invalid"
+        >
+          Buscar
+        </button>
+        <button type="reset" class="btn btn-secondary">Cancelar</button>
+      </div>
     </div>
-    <!-- Information content ends -->
+  </form>
+  <!-- Information form ends -->
+</div>
+<!-- Information content ends -->

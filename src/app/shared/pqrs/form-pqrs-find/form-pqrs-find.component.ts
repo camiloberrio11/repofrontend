@@ -1,47 +1,56 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { PqrApiService } from "app/shared/services/pqr-api.service";
+import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
-  selector: 'app-form-pqrs-find',
-  templateUrl: './form-pqrs-find.component.html',
-  styleUrls: ['./form-pqrs-find.component.scss']
+  selector: "app-form-pqrs-find",
+  templateUrl: "./form-pqrs-find.component.html",
+  styleUrls: ["./form-pqrs-find.component.scss"],
 })
 export class FormPqrsFindComponent implements OnInit {
-  selectedLanguages = ["English"];
-  languages = [
-    { value: "English", name: 'English' },
-    { value: "Spanish", name: 'Spanish' },
-    { value: "French", name: 'French' },
-    { value: "Russian", name: 'Russian' },
-    { value: "German", name: 'German' },
-    { value: "Hindi", name: 'Hindi' },
-    { value: "Arabic", name: 'Arabic' },
-    { value: "Sanskrit", name: 'Sanskrit' },
-  ];
+  formFindPqr: FormGroup;
 
-  selectedMusic = ["Jazz", "Hip Hop"];
-  music = [
-    { value: "Rock", name: 'Rock' },
-    { value: "Jazz", name: 'Jazz' },
-    { value: "Disco", name: 'Disco' },
-    { value: "Pop", name: 'Pop' },
-    { value: "Techno", name: 'Techno' },
-    { value: "Folk", name: 'Folk' },
-    { value: "Hip Hop", name: 'Hip Hop' },
-  ];
-
-  selectedMovies = ["The Dark Knight", "Perl Harbour"];
-  movies = [
-    { value: "Avatar", name: 'Avatar' },
-    { value: "The Dark Knight", name: 'The Dark Knight' },
-    { value: "Harry Potter", name: 'Harry Potter' },
-    { value: "Iron Man", name: 'Iron Man' },
-    { value: "Spider Man", name: 'Spider Man' },
-    { value: "Perl Harbour", name: 'Perl Harbour' },
-    { value: "Airplane!", name: 'Airplane!' },
-  ];
-  constructor() { }
+  constructor(
+    private pqrApi: PqrApiService,
+    private spinner: NgxSpinnerService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
+    this.buildForm();
   }
 
+  findPqr(): void {
+    const values = this.formFindPqr.value;
+    this.spinner.show();
+    this.pqrApi.getPqrByCodes(values?.codePqrs, values?.idSender).subscribe(
+      (suc) => {
+        if (!suc?.data) {
+          this.toastr.error('No hemos encontrado una solicitud con los parámetros dados');
+          return;
+        }
+        if (!suc?.data?.Finally) {
+          this.toastr.info('Hemos encontrado tu solicitud, pero aún se encuentra en revisión por uno de nuestros agentes');
+          return;
+        }
+        this.spinner.hide();
+      },
+      (err) => {
+        this.spinner.hide();
+
+        this.toastr.error(
+          "No hemos encontrado una solicitud con los datos dados"
+        );
+      }
+    );
+  }
+
+  private buildForm(): void {
+    this.formFindPqr = new FormGroup({
+      codePqrs: new FormControl("", Validators.required),
+      idSender: new FormControl("", Validators.required),
+    });
+  }
 }

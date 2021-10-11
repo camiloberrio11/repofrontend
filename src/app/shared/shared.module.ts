@@ -34,6 +34,7 @@ import { FormPqrsFindComponent } from './pqrs/form-pqrs-find/form-pqrs-find.comp
 import { FormPqrsCreateComponent } from './pqrs/form-pqrs-create/form-pqrs-create.component';
 import { NgSelectModule } from "@ng-select/ng-select";
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
         TopMenuDirective,
         NgbModule,
         FormPqrsCreateComponent,
-        FormPqrsFindComponent
+        FormPqrsFindComponent,
+
         // TranslateModule,
     ],
     imports: [
@@ -65,7 +67,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
         ClickOutsideModule,
         AutocompleteModule,
         PipeModule,
-        NgSelectModule
+        NgSelectModule,
+        ToastrModule.forRoot(),
     ],
     declarations: [
         FooterComponent,
