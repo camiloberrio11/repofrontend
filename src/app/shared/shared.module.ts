@@ -35,6 +35,7 @@ import { FormPqrsCreateComponent } from './pqrs/form-pqrs-create/form-pqrs-creat
 import { NgSelectModule } from "@ng-select/ng-select";
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
+import { CardResultPqrsComponent } from './pqrs/card-result-pqrs/card-result-pqrs.component';
 
 
 @NgModule({
@@ -52,8 +53,6 @@ import { ToastrModule } from 'ngx-toastr';
         NgbModule,
         FormPqrsCreateComponent,
         FormPqrsFindComponent,
-
-        // TranslateModule,
     ],
     imports: [
         RouterModule,
@@ -88,6 +87,7 @@ import { ToastrModule } from 'ngx-toastr';
         TopMenuDirective,
         FormPqrsFindComponent,
         FormPqrsCreateComponent,
+        CardResultPqrsComponent,
     ]
 })
 export class SharedModule { }

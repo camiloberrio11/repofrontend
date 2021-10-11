@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { RequestPqrs } from 'app/shared/models/RequestPqrs';
 import { PqrApiService } from "app/shared/services/pqr-api.service";
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from "ngx-toastr";
@@ -11,6 +12,8 @@ import { ToastrService } from "ngx-toastr";
 })
 export class FormPqrsFindComponent implements OnInit {
   formFindPqr: FormGroup;
+  requestPqrsFind: RequestPqrs;
+  existPqrs = false;
 
   constructor(
     private pqrApi: PqrApiService,
@@ -23,6 +26,7 @@ export class FormPqrsFindComponent implements OnInit {
   }
 
   findPqr(): void {
+    this.requestPqrsFind = null;
     const values = this.formFindPqr.value;
     this.spinner.show();
     this.pqrApi.getPqrByCodes(values?.codePqrs, values?.idSender).subscribe(
@@ -35,6 +39,8 @@ export class FormPqrsFindComponent implements OnInit {
           this.toastr.info('Hemos encontrado tu solicitud, pero aún se encuentra en revisión por uno de nuestros agentes');
           return;
         }
+        this.existPqrs = true;
+        this.requestPqrsFind = suc?.data;
         this.spinner.hide();
       },
       (err) => {
