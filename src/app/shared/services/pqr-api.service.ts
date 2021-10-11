@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { ResponseJourney } from '../models/Journey';
+import { BodyRequestCreatePqr, ResponseCreatePqr } from '../models/RequestPqrs';
 import { ResponseTypeDocument } from '../models/TypeDocument';
 import { ResponseTypeRequest } from '../models/TypeRequest';
 
@@ -27,6 +28,10 @@ export class PqrApiService {
 
   getJourneys(): Observable<ResponseJourney> {
     return this.http.get<ResponseJourney>(`${environment?.urlApi}/api/journeys`);
+  }
+
+  createPqrs(body: BodyRequestCreatePqr): Observable<ResponseCreatePqr> {
+    return this.http.post<ResponseCreatePqr>(`${environment?.urlApi}/api/request`, body);
   }
 
 

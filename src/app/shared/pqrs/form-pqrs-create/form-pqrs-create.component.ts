@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { Journey } from 'app/shared/models/Journey';
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Journey } from "app/shared/models/Journey";
 import { TypeDocument } from "app/shared/models/TypeDocument";
-import { TypeRequest } from 'app/shared/models/TypeRequest';
-import { TypeSubrequest } from 'app/shared/models/TypeSubrequest';
+import { TypeRequest } from "app/shared/models/TypeRequest";
+import { TypeSubrequest } from "app/shared/models/TypeSubrequest";
 import { PqrApiService } from "app/shared/services/pqr-api.service";
 import { NgxSpinnerService } from "ngx-spinner";
 
@@ -17,8 +18,7 @@ export class FormPqrsCreateComponent implements OnInit {
   listSubtypeRequest: TypeSubrequest[] = [];
   listOriginJourney: Journey[] = [];
   listDepartureJourney: Journey[] = [];
-
-
+  formCreatePqr: FormGroup;
 
   constructor(
     private pqrApi: PqrApiService,
@@ -30,6 +30,13 @@ export class FormPqrsCreateComponent implements OnInit {
     this.getTypeRequest();
     this.getSubtypeRequest();
     this.getJourneys();
+    this.buildForm();
+  }
+
+  onChange(event: string, formControl: string): void {
+    this.formCreatePqr.patchValue({
+      [formControl]: event,
+    });
   }
 
   private getTypeDocument(): void {
@@ -84,5 +91,26 @@ export class FormPqrsCreateComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  private buildForm(): void {
+    this.formCreatePqr = new FormGroup({
+      codeRequestType: new FormControl("", Validators.required),
+      codeRequestSubtype: new FormControl(""),
+      attachmentOne: new FormControl("", Validators.required),
+      attachmentTwo: new FormControl(""),
+      attachmentThree: new FormControl(""),
+      sideVehicle: new FormControl(""),
+      idVehicle: new FormControl("", Validators.required),
+      detail: new FormControl("", Validators.required),
+      origin: new FormControl("", Validators.required),
+      departure: new FormControl(""),
+      documentTypeSender: new FormControl("", Validators.required),
+      idSender: new FormControl("", Validators.required),
+      nameSender: new FormControl("", Validators.required),
+      addressSender: new FormControl("", Validators.required),
+      emailSender: new FormControl("", Validators.required),
+      phoneSender: new FormControl(""),
+    });
   }
 }
