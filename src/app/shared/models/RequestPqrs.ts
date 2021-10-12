@@ -91,3 +91,15 @@ interface FieldGeneralCode {
   Name: string;
   Code: string;
 }
+
+export interface ResponseRequestByStatus {
+  ok: boolean;
+  message: string;
+  data?: RequestPqrsPopulate[];
+}
+
+export interface BodyRequestByStatus {
+  limit: number;
+  page: number;
+  closed: boolean;
+}

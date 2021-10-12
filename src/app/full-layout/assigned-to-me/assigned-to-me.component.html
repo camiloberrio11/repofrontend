@@ -1,36 +1,21 @@
 <!-- Knowledge base categories Content start  -->
 <section class="kb-categories position-relative">
-  <div class="kb-overlay" [ngClass]="{show: isShowCategory}" (click)="isShowCategory = false;"></div>
+  <div
+    class="kb-overlay"
+    [ngClass]="{ show: isShowCategory }"
+    (click)="isShowCategory = false"
+  ></div>
   <div class="row">
     <!-- right side section -->
     <div class="col-md-12">
-      <button class="btn btn-primary mb-1 kb-menu d-md-none" >
+      <!-- <button class="btn btn-primary mb-1 kb-menu d-md-none">
         <i class="ft-menu mr-1"></i>
         <span>Categories</span>
-      </button>
+      </button> -->
       <div class="row match-height">
-        <div class="col-lg-4 col-sm-6" *ngFor="let category of kbCategories">
-          <div class="card">
-            <a href="javascript:;" (click)="viewDetail(kb)">
-              <div class="card-content">
-                <div class="card-body">
-                  <h5 class="card-title">{{category.name}}</h5>
-                  <p class="card-text kb-categories-text kb-ellipsis">{{category.content}}</p>
-                  <ul class="list-unstyled users-list m-0 d-flex align-items-center">
-                    <li *ngFor="let tooltip of category.tooltips" data-toggle="tooltip" data-popup="tooltip-custom"
-                      placement="bottom" [ngbTooltip]="tooltip.name" class="avatar pull-up" container="body">
-                      <img [src]="tooltip.avatar" alt="Avatar" height="30" width="30">
-                    </li>
-                    <li class="d-inline-block pl-2">
-                      <p class="kb-categories-text mb-0 font-small-3">{{category.text}}</p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-          </div>
+        <div class="col-lg-4 col-sm-6" *ngFor="let item of listPqrs">
+          <app-card-pqrs-resume [pqr]="item"></app-card-pqrs-resume>
         </div>
-
       </div>
     </div>
   </div>

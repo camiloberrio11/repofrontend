@@ -1,5 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
+import { RequestPqrsPopulate } from "app/shared/models/RequestPqrs";
+import { PqrApiService } from "app/shared/services/pqr-api.service";
+import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-assigned-to-me",
@@ -7,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ["./assigned-to-me.component.scss"],
 })
 export class AssignedToMeComponent implements OnInit {
+  listPqrs: RequestPqrsPopulate[] = [];
   page = 1;
   isShowCategory = false;
   kbCategories: any[] = [
@@ -181,11 +186,29 @@ export class AssignedToMeComponent implements OnInit {
     },
   ];
 
-  constructor(private router: Router) {}
+  constructor(
+    private pqrApi: PqrApiService,
+    private spinner: NgxSpinnerService,
+    private toastr: ToastrService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getPqrsPending();
+  }
 
-  viewDetail(category: any) {
-    // this.router.navigate(['/pages/kb/questions']);
+  private getPqrsPending(): void {
+    this.spinner.show();
+    this.pqrApi
+      .getRequestByStatus({ limit: 10, page: 1, closed: false })
+      .subscribe(
+        (req) => {
+          this.listPqrs = req?.data;
+          this.spinner.hide();
+        },
+        (err) => {
+          this.toastr.error('Ha ocurrido un error obteniendo las asignaciones pendientes');
+          this.spinner.hide();
+        }
+      );
   }
 }

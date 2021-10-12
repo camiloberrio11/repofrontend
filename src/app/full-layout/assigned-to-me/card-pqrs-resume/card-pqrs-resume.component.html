@@ -1,0 +1,51 @@
+<div class="card">
+  <a (click)="viewDetail()">
+    <div class="card-content">
+      <div class="card-body">
+        <h5 class="card-title">{{pqr?.CodeRequestType?.Name}} - {{pqr?.CodeRequestSubtype.Name}} - {{pqr?.Consecutive}}</h5>
+        <div class="col-12">
+          <div class="table-responsive">
+            <table class="table table-borderless">
+              <tbody>
+                <tr>
+                  <td>Origen:</td>
+                  <td class="users-view-username">
+                    {{ pqr?.Origin?.Name }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Destino:</td>
+                  <td class="users-view-username">
+                    {{ pqr?.Departure?.Name }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Fecha suceso:</td>
+                  <td class="users-view-username">
+                    {{ pqr?.EventDate?.split('T')[0] }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Hora suceso:</td>
+                  <td class="users-view-username">
+                    {{ pqr?.EventDate?.split('T')?.pop()?.split('.')[0] }}
+                  </td>
+                </tr>
+                </tbody>
+                </table>
+          </div>
+          </div>
+        <!-- <p class="card-text kb-categories-text kb-ellipsis">mundoweb</p>
+        <ul class="list-unstyled users-list m-0 d-flex align-items-center">
+          <li *ngFor="let tooltip of category.tooltips" data-toggle="tooltip" data-popup="tooltip-custom"
+            placement="bottom" [ngbTooltip]="tooltip.name" class="avatar pull-up" container="body">
+            <img [src]="tooltip.avatar" alt="Avatar" height="30" width="30">
+          </li>
+          <li class="d-inline-block pl-2">
+            <p class="kb-categories-text mb-0 font-small-3">Mi texto</p>
+          </li>
+        </ul> -->
+      </div>
+    </div>
+  </a>
+</div>

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { ResponseJourney } from '../models/Journey';
-import { BodyRequestCreatePqr, ResponseCreatePqr, ResponseGetRequestByCode } from '../models/RequestPqrs';
+import { BodyRequestByStatus, BodyRequestCreatePqr, ResponseCreatePqr, ResponseGetRequestByCode, ResponseRequestByStatus } from '../models/RequestPqrs';
 import { ResponseGetByIdRequest } from '../models/ResponseRequest';
 import { ResponseTypeDocument } from '../models/TypeDocument';
 import { ResponseTypeRequest } from '../models/TypeRequest';
@@ -41,6 +41,10 @@ export class PqrApiService {
 
   getRepsonseByIdRequest(idRequest: string): Observable<ResponseGetByIdRequest> {
     return this.http.get<ResponseGetByIdRequest>(`${environment?.urlApi}/api/response/${idRequest}`);
+  }
+
+  getRequestByStatus(body: BodyRequestByStatus): Observable<ResponseRequestByStatus> {
+    return this.http.post<ResponseRequestByStatus>(`${environment?.urlApi}/api/request/status`, body);
   }
 
 
