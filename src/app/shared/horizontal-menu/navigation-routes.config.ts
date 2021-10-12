@@ -1,18 +1,11 @@
 import { RouteInfo } from "../vertical-menu/vertical-menu.metadata";
 
 export const HROUTES: RouteInfo[] = [
-  {
-    path: "/page",
-    title: "Page",
-    icon: "ft-home",
-    class: "dropdown nav-item",
-    isExternalLink: false,
-    submenu: [],
-  },
+
   {
     path: "/dashboard",
     title: "Tablero",
-    icon: "ft-home",
+    icon: "ft-pie-chart",
     class: "dropdown nav-item",
     isExternalLink: false,
     submenu: [],

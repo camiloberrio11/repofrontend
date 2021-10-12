@@ -5,7 +5,7 @@ export const ROUTES: RouteInfo[] = [
   {
     path: "/dashboard",
     title: "Tablero",
-    icon: "ft-home",
+    icon: "ft-pie-chart",
     class: "dropdown nav-item",
     isExternalLink: false,
     submenu: [],
@@ -13,7 +13,7 @@ export const ROUTES: RouteInfo[] = [
   {
     path: "/assigned-to-me",
     title: "Asignado a mi",
-    icon: "ft-home",
+    icon: "ft-tag",
     class: "dropdown nav-item",
     isExternalLink: false,
     submenu: [],
@@ -21,7 +21,7 @@ export const ROUTES: RouteInfo[] = [
   {
     path: "/history",
     title: "Historial gestionados",
-    icon: "ft-home",
+    icon: "ft-clipboard",
     class: "dropdown nav-item",
     isExternalLink: false,
     submenu: [],
