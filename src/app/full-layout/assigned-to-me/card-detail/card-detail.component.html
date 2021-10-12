@@ -352,6 +352,7 @@
               <button
                 type="button"
                 class="btn btn-primary mr-1"
+                [disabled]="formResponsePqr?.invalid"
                 (click)="handleSubmit()"
               >
                 <i class="ft-check mr-2"></i>Responder

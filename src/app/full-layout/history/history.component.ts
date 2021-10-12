@@ -12,7 +12,8 @@ import { Router } from "@angular/router";
 })
 export class HistoryComponent implements OnInit {
   listHistoryPqrs: RequestPqrsPopulate[] = [];
-  closeResult: string;
+  currentPage = 1;
+  totalItems = 0;
 
   constructor(
     private pqrApi: PqrApiService,
@@ -29,11 +30,17 @@ export class HistoryComponent implements OnInit {
     this.router.navigate(["/history/detail"], { state: { pqrDetail: item } });
   }
 
+  loadPage(event: number): void {
+    this.currentPage = event;
+    this.getHistoryPqrs();
+  }
+
   private getHistoryPqrs(): void {
     this.spinner.show();
-    const body: BodyRequestByStatus = { page: 1, limit: 10, closed: true };
+    const body: BodyRequestByStatus = { page: this.currentPage, limit: 10, closed: true };
     this.pqrApi.getRequestByStatus(body).subscribe(
       (st) => {
+        this.totalItems = +st.message;
         this.listHistoryPqrs = st?.data;
         this.spinner.hide();
       },
