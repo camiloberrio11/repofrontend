@@ -1,4 +1,6 @@
 <!-- Knowledge base categories Content start  -->
+<ngx-spinner></ngx-spinner>
+<p class="noassigned" *ngIf="listPqrs?.length < 1">Actualmente no cuentas con solicitudes asignadas</p>
 <section class="kb-categories position-relative">
   <div
     class="kb-overlay"
@@ -8,10 +10,6 @@
   <div class="row">
     <!-- right side section -->
     <div class="col-md-12">
-      <!-- <button class="btn btn-primary mb-1 kb-menu d-md-none">
-        <i class="ft-menu mr-1"></i>
-        <span>Categories</span>
-      </button> -->
       <div class="row match-height">
         <div class="col-lg-4 col-sm-6" *ngFor="let item of listPqrs">
           <app-card-pqrs-resume [pqr]="item"></app-card-pqrs-resume>

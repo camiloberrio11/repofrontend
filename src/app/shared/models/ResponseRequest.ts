@@ -1,3 +1,5 @@
+import { RequestPqrs } from './RequestPqrs';
+
 export interface ResponseGetByIdRequest {
   ok: boolean;
   message: string;
@@ -12,4 +14,17 @@ export interface ResponseRequest {
   AttachmentTwo: string;
   AttachmentThree: string;
   __v: number;
+}
+
+export interface BodyResponseRequest {
+  answer: string;
+  attachmentOne: string;
+  attachmentTwo: string;
+  attachmentThree: string;
+}
+
+export interface ResponseUpdateRequest {
+  ok: boolean;
+  message: string;
+  data: RequestPqrs;
 }

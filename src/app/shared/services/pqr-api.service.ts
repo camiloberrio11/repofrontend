@@ -4,7 +4,7 @@ import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { ResponseJourney } from '../models/Journey';
 import { BodyRequestByStatus, BodyRequestCreatePqr, ResponseCreatePqr, ResponseGetRequestByCode, ResponseRequestByStatus } from '../models/RequestPqrs';
-import { ResponseGetByIdRequest } from '../models/ResponseRequest';
+import { BodyResponseRequest, ResponseGetByIdRequest, ResponseUpdateRequest } from '../models/ResponseRequest';
 import { ResponseTypeDocument } from '../models/TypeDocument';
 import { ResponseTypeRequest } from '../models/TypeRequest';
 
@@ -45,6 +45,10 @@ export class PqrApiService {
 
   getRequestByStatus(body: BodyRequestByStatus): Observable<ResponseRequestByStatus> {
     return this.http.post<ResponseRequestByStatus>(`${environment?.urlApi}/api/request/status`, body);
+  }
+
+  responseRequest(body: BodyResponseRequest, idRequest): Observable<ResponseUpdateRequest> {
+    return this.http.post<ResponseUpdateRequest>(`${environment?.urlApi}/api/response/${idRequest}`, body);
   }
 
 

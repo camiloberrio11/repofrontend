@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AssignedToMeComponent } from './assigned-to-me.component';
+import { CardDetailComponent } from './card-detail/card-detail.component';
 
 const routes: Routes = [
   {
@@ -8,8 +9,9 @@ const routes: Routes = [
     component: AssignedToMeComponent,
     data: {
       title: 'Asignado a mi'
-    }
-  }
+    },
+  },
+  { path: "detail", component: CardDetailComponent }
 ];
 
 @NgModule({
