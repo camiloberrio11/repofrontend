@@ -1,0 +1,388 @@
+<ngx-spinner></ngx-spinner>
+<section id="horizontal-form-layout">
+  <div class="row match-height">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">
+            Historial de solicitud: {{ pqrDetail?.Id }}
+          </h4>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-1"
+                    >Tipo</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="pqrDetail?.CodeRequestType?.Name"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-2"
+                    >Subtipo</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="pqrDetail?.CodeRequestSubtype?.Name"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-md-3">
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-3"
+                    >Origen</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="pqrDetail?.Origin?.Name"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-4"
+                    >Destino</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="pqrDetail?.Departure?.Name"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-md-3">
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-3"
+                    >Usuario asignado</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="pqrDetail?.AssignedUser"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-4"
+                    >Estado</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      value="Finalizado"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-md-3">
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-3"
+                    >Fecha creación</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="pqrDetail?.EventDate?.split('T')[0]"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-4"
+                    >Hora de creación</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="
+                        pqrDetail?.EventDate?.split('T')?.pop()?.split('.')[0]
+                      "
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-md-3">
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-3"
+                    >Placa vehículo</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="pqrDetail?.IdVehicle"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-4"
+                    >Lateral vehículo</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="pqrDetail?.SideVehicle"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-md-3">
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-3"
+                    >Adjunto 1</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="pqrDetail?.AttachmentOne"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-4"
+                    >Adjunto 2</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="pqrDetail?.AttachmentTwo"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-md-3">
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-3"
+                    >Adjunto 3</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="pqrDetail?.AttachmentThree"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-4"
+                    >Detalle</label
+                  >
+                  <div class="col-md-9">
+                    <textarea
+                      id="horizontal-form-9"
+                      rows="5"
+                      class="form-control square"
+                      [value]="pqrDetail?.Detail"
+                      disabled
+                      readonly
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr />
+            <div class="card-header">
+              <h4 class="card-title mb-4">Respuesta de solicitud</h4>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-1"
+                    >Fecha respuesta</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="reponseToPqr?.AnswerDate?.split('T')[0]"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-2"
+                    >Hora respuesta</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="
+                        reponseToPqr?.AnswerDate?.split('T')
+                          ?.pop()
+                          ?.split('.')[0]
+                      "
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-1"
+                    >Adjunto 1</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="reponseToPqr?.AttachmentOne"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-2"
+                    >Adjunto 2</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="reponseToPqr?.AttachmentTwo"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-1"
+                    >Adjunto 3</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="reponseToPqr?.AttachmentThree"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-2"
+                    >Respuesta</label
+                  >
+                  <div class="col-md-9">
+                    <textarea
+                      id="horizontal-form-9"
+                      rows="5"
+                      class="form-control square"
+                      [value]="reponseToPqr?.Answer"
+                      disabled
+                      readonly
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <button type="button" class="btn btn-primary mr-2">
+                <i class="ft-check-square mr-1"></i>Save
+              </button> -->
+            <div class="d-flex align-items-center justify-content-center">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="goBack()"
+              >
+                <i class="ft-x mr-1"></i>Volver
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

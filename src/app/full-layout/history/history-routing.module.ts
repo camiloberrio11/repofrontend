@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CardDetailAllComponent } from './card-detail-all/card-detail-all.component';
 import { HistoryComponent } from './history.component';
 
 const routes: Routes = [
@@ -9,6 +10,10 @@ const routes: Routes = [
     data: {
       title: 'Historial'
     }
+  },
+  {
+    path: 'detail',
+    component: CardDetailAllComponent
   }
 ];
 

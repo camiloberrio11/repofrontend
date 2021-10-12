@@ -10,6 +10,7 @@ export interface ResponseRequest {
   _id: string;
   IdRequest: string;
   Answer: string;
+  AnswerDate: string;
   AttachmentOne: string;
   AttachmentTwo: string;
   AttachmentThree: string;
