@@ -12,7 +12,7 @@
   <div appSidebar *ngIf="menuPosition === 'Side' || displayOverlayMenu"
     [ngClass]="{'main-menu': menuPosition === 'Side' || displayOverlayMenu, 'menu-fixed': menuPosition === 'Side' || displayOverlayMenu, 'menu-native-scroll': !perfectScrollbarEnable }" class="app-sidebar"
     (mouseenter)="sidebarMouseenter($event)" (mouseleave)="sidebarMouseleave($event)" data-active-color="white"
-    [attr.data-background-color]="config?.layout.variant === 'Transparent' ? 'black': bgColor"
+    [attr.data-background-color]="'info'"
     [attr.data-image]="bgImage">
     <app-sidebar></app-sidebar>
     <div class="sidebar-background" [ngStyle]="{'background-image': 'url(' + bgImage + ')'}"
