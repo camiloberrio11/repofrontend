@@ -30,9 +30,9 @@ import { Router } from "@angular/router";
   styleUrls: ["./navbar.component.scss"],
 })
 export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
-  currentLang = "en";
-  selectedLanguageText = "English";
-  selectedLanguageFlag = "./assets/img/flags/us.png";
+  currentLang = "es";
+  selectedLanguageText = "Spanish";
+  selectedLanguageFlag = "./assets/img/flags/es.png";
   toggleClass = "ft-maximize";
   placement = "bottom-right";
   logoUrl = "assets/img/logo.png";
