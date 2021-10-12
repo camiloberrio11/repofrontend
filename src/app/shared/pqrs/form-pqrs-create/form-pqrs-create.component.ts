@@ -8,6 +8,8 @@ import { TypeSubrequest } from "app/shared/models/TypeSubrequest";
 import { PqrApiService } from "app/shared/services/pqr-api.service";
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: "app-form-pqrs-create",
@@ -59,7 +61,11 @@ export class FormPqrsCreateComponent implements OnInit {
     this.spinner.show();
     this.pqrApi.createPqrs(body).subscribe(
       (cre) => {
-        this.toastr.success('Se ha creado con éxito tu solicitud, te enviaremos un correo electrónico con la información');
+        Swal.fire(
+          'Solicitud creada',
+          'Te enviaremos un correo electrónico con la información',
+          'success'
+        )
         this.spinner.hide();
         this.formCreatePqr.reset();
       },
