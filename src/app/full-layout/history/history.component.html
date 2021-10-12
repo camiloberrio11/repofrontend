@@ -1,9 +1,10 @@
+<ngx-spinner></ngx-spinner>
 <section id="extended">
   <div class="row">
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Action Buttons</h4>
+          <h4 class="card-title">Mis asignaciones gestionadas</h4>
         </div>
         <div class="card-content">
           <div class="card-body table-responsive">
@@ -21,18 +22,16 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-
-                  <td>Kelly</td>
-                  <td>Carter</td>
-                  <td>Female</td>
-                  <td>kellycarter@mail.com</td>
-                  <td>kellycarter@mail.com</td>
-                  <td>kellycarter@mail.com</td>
-
+                <tr *ngFor="let item of listHistoryPqrs">
+                  <td>{{item.Id}}</td>
+                  <td>{{item?.CodeRequestType?.Name}}</td>
+                  <td>{{item?.CodeRequestSubtype?.Name}}</td>
+                  <td>{{item?.EventDate?.split('T')[0]}}</td>
+                  <td>{{item?.EventDate?.split('T')?.pop()?.split('.')[0]}}</td>
+                  <td>{{item?.Origin?.Name}}</td>
+                  <td>{{item?.Departure?.Name}}</td>
                   <td class="text-truncate">
-                    <a (click)="viewItem()" class="primary p-0">
+                    <a (click)="open(content, item)" class="primary p-0">
                       <i class="ft-eye font-medium-3 mr-2"></i>
                     </a>
                   </td>
@@ -45,3 +44,23 @@
     </div>
   </div>
 </section>
+
+
+<div class="card-content">
+  <div class="card-body">
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">Caso: </h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer d-flex align-items-center justify-content-center mb-3">
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Cerrar</button>
+      </div>
+    </ng-template>
+  </div>
+</div>
