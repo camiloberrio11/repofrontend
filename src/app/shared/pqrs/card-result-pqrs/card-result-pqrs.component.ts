@@ -11,8 +11,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ["./card-result-pqrs.component.scss"],
 })
 export class CardResultPqrsComponent implements OnInit, OnChanges {
-  @Input() pqr: RequestPqrsPopulate;
-  responsePqr: ResponseRequest;
+  @Input() pqrDetail: RequestPqrsPopulate;
+  reponseToPqr: ResponseRequest;
 
   constructor(
     private pqrApi: PqrApiService,
@@ -21,7 +21,9 @@ export class CardResultPqrsComponent implements OnInit, OnChanges {
   ) {}
 
   ngOnChanges() {
-    if (this.pqr) {
+    console.log(this.pqrDetail)
+    if (this.pqrDetail) {
+      console.log(this.pqrDetail)
       this.getResponse();
     }
   }
@@ -30,8 +32,8 @@ export class CardResultPqrsComponent implements OnInit, OnChanges {
 
   private getResponse(): void {
     this.spinner.show();
-    this.pqrApi.getRepsonseByIdRequest(this.pqr?._id).subscribe(da => {
-      this.responsePqr = da?.data;
+    this.pqrApi.getRepsonseByIdRequest(this.pqrDetail?._id).subscribe(da => {
+      this.reponseToPqr = da?.data;
       this.spinner.hide();
 
     }, err => {

@@ -39,6 +39,10 @@ export class CardDetailComponent implements OnInit {
     this.router.navigate(["/assigned-to-me"]);
   }
 
+  handleAssign(): void {
+    
+  }
+
   handleSubmit(): void {
     const values = this.formResponsePqr.value;
     const body: BodyResponseRequest = {
