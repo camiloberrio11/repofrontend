@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  urlApi: 'http://localhost:5000',
-  // urlApi: 'https://flota-ospina-api.herokuapp.com'
+  // urlApi: 'http://localhost:5000',
+  urlApi: 'https://flota-ospina-api.herokuapp.com'
 };
