@@ -20,7 +20,6 @@ const appRoutes: Routes = [
     component: FullLayoutComponent,
     data: { title: "full Views" },
     children: Full_ROUTES,
-    // canActivate: [AuthGuard],
   },
   {
     path: "",

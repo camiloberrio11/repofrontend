@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { ResponseJourney } from '../models/Journey';
+import { LoginBodyRequest, ResponseLoginService } from '../models/Login';
 import { BodyRequestByStatus, BodyRequestCreatePqr, ResponseCreatePqr, ResponseGetRequestByCode, ResponseRequestByStatus } from '../models/RequestPqrs';
 import { BodyResponseRequest, ResponseGetByIdRequest, ResponseUpdateRequest } from '../models/ResponseRequest';
 import { ResponseTypeDocument } from '../models/TypeDocument';
@@ -49,6 +50,11 @@ export class PqrApiService {
 
   responseRequest(body: BodyResponseRequest, idRequest): Observable<ResponseUpdateRequest> {
     return this.http.post<ResponseUpdateRequest>(`${environment?.urlApi}/api/response/${idRequest}`, body);
+  }
+
+
+  login(body: LoginBodyRequest): Observable<ResponseLoginService> {
+    return this.http.post<ResponseLoginService>(`${environment?.urlApi}/api/login`, body);
   }
 
 

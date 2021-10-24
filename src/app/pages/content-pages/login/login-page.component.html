@@ -34,7 +34,7 @@
                   *ngIf="isLoginFailed"
                   (close)="isLoginFailed = false"
                 >
-                  <p class="mb-0">Login failed!</p>
+                  <p class="mb-0">Login fallido</p>
                 </ngb-alert>
                 <form [formGroup]="loginForm">
                   <div class="form-group">
@@ -42,7 +42,7 @@
                       type="text"
                       formControlName="username"
                       class="form-control"
-                      placeholder="Username"
+                      placeholder="Usuario"
                       [ngClass]="{
                         'is-invalid': loginFormSubmitted && lf.username.invalid,
                         'is-valid': loginFormSubmitted && !lf.username.invalid
@@ -56,8 +56,7 @@
                       "
                       class="help-block mt-1 text-danger"
                     >
-                      <i class="ft-alert-circle align-middle"></i> This is
-                      required
+                      <i class="ft-alert-circle align-middle"></i> Este campo es obligatorio
                     </div>
                   </div>
                   <div class="form-group">
@@ -65,7 +64,7 @@
                       type="password"
                       formControlName="password"
                       class="form-control"
-                      placeholder="Old Password"
+                      placeholder="Contraseña"
                       [ngClass]="{
                         'is-invalid': loginFormSubmitted && lf.password.invalid,
                         'is-valid': loginFormSubmitted && !lf.password.invalid
@@ -83,7 +82,7 @@
                       required
                     </div>
                   </div>
-                  <div
+                  <!-- <div
                     class="d-sm-flex justify-content-between mb-3 font-small-2"
                   >
                     <div class="remember-me mb-2 mb-sm-0">
@@ -102,7 +101,7 @@
                       </div>
                     </div>
                     <a class="fo" href="javascript:;">Olvidé mi contraseña</a>
-                  </div>
+                  </div> -->
                   <div class="d-flex justify-content-between flex-column">
                     <a class="btn btn-fo" (click)="onSubmit()"
                       >Iniciar sesión</a
