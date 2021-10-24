@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { RequestPqrsPopulate } from "app/shared/models/RequestPqrs";
+import { AuthUserService } from "app/shared/services/auth-user.service";
 import { PqrApiService } from "app/shared/services/pqr-api.service";
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from "ngx-toastr";
@@ -189,7 +190,8 @@ export class AssignedToMeComponent implements OnInit {
   constructor(
     private pqrApi: PqrApiService,
     private spinner: NgxSpinnerService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private userService: AuthUserService
   ) {}
 
   ngOnInit(): void {
@@ -198,15 +200,24 @@ export class AssignedToMeComponent implements OnInit {
 
   private getPqrsPending(): void {
     this.spinner.show();
+    const infoUser = this.userService.authRolUser?.data;
     this.pqrApi
-      .getRequestByStatus({ limit: 10, page: 1, closed: false })
+      .getRequestByStatus({
+        limit: 10,
+        page: 1,
+        closed: false,
+        admin: infoUser?.admin,
+        user: infoUser?.user,
+      })
       .subscribe(
         (req) => {
           this.listPqrs = req?.data;
           this.spinner.hide();
         },
         (err) => {
-          this.toastr.error('Ha ocurrido un error obteniendo las asignaciones pendientes');
+          this.toastr.error(
+            "Ha ocurrido un error obteniendo las asignaciones pendientes"
+          );
           this.spinner.hide();
         }
       );

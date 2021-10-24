@@ -102,4 +102,6 @@ export interface BodyRequestByStatus {
   limit: number;
   page: number;
   closed: boolean;
+  admin: boolean;
+  user: string;
 }

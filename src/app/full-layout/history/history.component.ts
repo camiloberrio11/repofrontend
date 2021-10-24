@@ -5,6 +5,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from "ngx-toastr";
 import { BodyRequestByStatus } from "../../shared/models/RequestPqrs";
 import { Router } from "@angular/router";
+import { AuthUserService } from "app/shared/services/auth-user.service";
 @Component({
   selector: "app-history",
   templateUrl: "./history.component.html",
@@ -19,7 +20,8 @@ export class HistoryComponent implements OnInit {
     private pqrApi: PqrApiService,
     private spinner: NgxSpinnerService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private userService: AuthUserService
   ) {}
 
   ngOnInit(): void {
@@ -37,7 +39,14 @@ export class HistoryComponent implements OnInit {
 
   private getHistoryPqrs(): void {
     this.spinner.show();
-    const body: BodyRequestByStatus = { page: this.currentPage, limit: 10, closed: true };
+    const infoUser = this.userService.authRolUser?.data;
+    const body: BodyRequestByStatus = {
+      page: this.currentPage,
+      limit: 10,
+      closed: true,
+      admin: infoUser?.admin,
+      user: infoUser?.user,
+    };
     this.pqrApi.getRequestByStatus(body).subscribe(
       (st) => {
         this.totalItems = +st.message;
