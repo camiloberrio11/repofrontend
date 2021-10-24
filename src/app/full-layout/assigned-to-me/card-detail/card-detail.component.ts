@@ -7,6 +7,8 @@ import { BodyResponseRequest } from "app/shared/models/ResponseRequest";
 import { PqrApiService } from "app/shared/services/pqr-api.service";
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from "ngx-toastr";
+import { AuthUserService } from "app/shared/services/auth-user.service";
+import { User } from "app/shared/models/Users";
 
 @Component({
   selector: "app-card-detail",
@@ -16,14 +18,22 @@ import { ToastrService } from "ngx-toastr";
 export class CardDetailComponent implements OnInit {
   pqrDetail: RequestPqrsPopulate;
   formResponsePqr: FormGroup;
+  listUsers: User[];
+
+  userReasigId: string;
 
   constructor(
     private location: Location,
     private router: Router,
     private pqrApi: PqrApiService,
     private spinner: NgxSpinnerService,
-    private toastr: ToastrService
-  ) {}
+    private toastr: ToastrService,
+    private userAuth: AuthUserService
+  ) {
+    if (this.userAuth.authRolUser?.data?.admin) {
+      this.getUsers();
+    }
+  }
 
   ngOnInit(): void {
     const state: any = this.location.getState();
@@ -40,7 +50,23 @@ export class CardDetailComponent implements OnInit {
   }
 
   handleAssign(): void {
-    
+    this.spinner.show();
+    this.pqrApi.reasignRequest({assignedUser: this.userReasigId}, this.pqrDetail?._id).subscribe(
+      (re) => {
+        this.toastr.success('Petición reasignada');
+        this.userReasigId = '';
+        this.spinner.hide();
+      },
+      (err) => {
+        this.spinner.hide();
+        console.warn(err);
+        this.toastr.error("Ocurrió un error reasignando esta petición");
+      }
+    );
+  }
+
+  onChangeReasign(event: string) {
+    this.userReasigId = event;
   }
 
   handleSubmit(): void {
@@ -63,7 +89,6 @@ export class CardDetailComponent implements OnInit {
       (err) => {
         this.toastr.error("Ha ocurrido un error actualizando esta solicitud");
         this.spinner.hide();
-
       }
     );
   }
@@ -75,5 +100,20 @@ export class CardDetailComponent implements OnInit {
       attachmentTwo: new FormControl(""),
       attachmentThree: new FormControl(""),
     });
+  }
+
+  private getUsers(): void {
+    this.spinner.show();
+    this.pqrApi.getUsers().subscribe(
+      (usrs) => {
+        this.listUsers = usrs.data;
+        this.spinner.hide();
+      },
+      (err) => {
+        this.toastr.error("Ha ocurrido un error obteniendo usuarios");
+        console.warn(err);
+        this.spinner.hide();
+      }
+    );
   }
 }
