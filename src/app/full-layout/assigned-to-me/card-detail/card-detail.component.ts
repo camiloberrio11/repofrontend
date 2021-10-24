@@ -19,6 +19,7 @@ export class CardDetailComponent implements OnInit {
   pqrDetail: RequestPqrsPopulate;
   formResponsePqr: FormGroup;
   listUsers: User[];
+  userIsAdmin = false;
 
   userReasigId: string;
 
@@ -30,7 +31,8 @@ export class CardDetailComponent implements OnInit {
     private toastr: ToastrService,
     private userAuth: AuthUserService
   ) {
-    if (this.userAuth.authRolUser?.data?.admin) {
+    this.userIsAdmin = this.userAuth.authRolUser?.data?.admin;
+    if (this.userIsAdmin) {
       this.getUsers();
     }
   }
