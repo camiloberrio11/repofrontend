@@ -11,8 +11,7 @@ export class CardPqrsResumeComponent implements OnInit {
   @Input() pqr: RequestPqrsPopulate;
   constructor(private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   viewDetail(): void {
     this.router.navigate(["/assigned-to-me/detail"], {
