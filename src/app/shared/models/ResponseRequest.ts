@@ -1,3 +1,4 @@
+import { AttachmentFile } from './Attachment';
 import { RequestPqrs } from './RequestPqrs';
 
 export interface ResponseGetByIdRequest {
@@ -19,9 +20,9 @@ export interface ResponseRequest {
 
 export interface BodyResponseRequest {
   answer: string;
-  attachmentOne: string;
-  attachmentTwo: string;
-  attachmentThree: string;
+  attachmentOne: AttachmentFile;
+  attachmentTwo: AttachmentFile;
+  attachmentThree: AttachmentFile;
 }
 
 export interface ResponseUpdateRequest {

@@ -46,7 +46,6 @@ export class FormPqrsCreateComponent implements OnInit {
   }
 
   handleUpload(event, formcontrolname: string) {
-    console.log(event);
     const file = event.target.files[0];
     if (file?.size > 85000) {
       this.toastr.warning(

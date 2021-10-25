@@ -243,40 +243,67 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="projectinput3" class="sr-only">Adjunto 1</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Adjunto 1"
-                      readonly
-                      disabled
-                    />
+                    <p>Adjunto 1</p>
+                    <p *ngIf="!pqrDetail?.AttachmentOne" class="noattachment">
+                      Sin adjunto
+                    </p>
+                    <a
+                      *ngIf="pqrDetail?.AttachmentOne"
+                      [href]="pqrDetail?.AttachmentOne"
+                      target="”_blank”"
+                      rel="”noopener"
+                    >
+                      <img
+                        [src]="pqrDetail?.AttachmentOne"
+                        alt="adjunto-one"
+                        width="150"
+                        height="150"
+                      />
+                    </a>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="projectinput4" class="sr-only">Adjunto 2</label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      placeholder="Adjunto 2"
-                      readonly
-                      disabled
-                    />
+                    <p>Adjunto 2</p>
+                    <p *ngIf="!pqrDetail?.AttachmentTwo" class="noattachment">
+                      Sin adjunto
+                    </p>
+                    <a
+                      *ngIf="pqrDetail?.AttachmentTwo"
+                      [href]="pqrDetail?.AttachmentTwo"
+                      target="”_blank”"
+                      rel="”noopener"
+                    >
+                      <img
+                        [src]="pqrDetail?.AttachmentTwo"
+                        alt="adjunto-one"
+                        width="150"
+                        height="150"
+                      />
+                    </a>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="projectinput3" class="sr-only">Adjunto 3</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Adjunto 3"
-                      readonly
-                      disabled
-                    />
+                    <p>Adjunto 3</p>
+                    <p *ngIf="!pqrDetail?.AttachmentThree" class="noattachment">
+                      Sin adjunto
+                    </p>
+                    <a
+                      *ngIf="pqrDetail?.AttachmentThree"
+                      [href]="pqrDetail?.AttachmentThree"
+                      target="”_blank”"
+                      rel="”noopener"
+                    >
+                      <img
+                        [src]="pqrDetail?.AttachmentThree"
+                        alt="adjunto-one"
+                        width="150"
+                        height="150"
+                      />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -329,44 +356,53 @@
               <form [formGroup]="formResponsePqr">
                 <div class="row">
                   <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="projectinput3" class="sr-only"
+                    <div class="form-group row">
+                      <label for="projectinput3" class="col-md-3 col-form-label"
                         >Adjunto 1</label
                       >
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Adjunto 1"
-                        formControlName="attachmentOne"
-                      />
+                      <div class="col-md-9">
+                        <input
+                        (change)="handleUpload($event, 'attachmentOne')"
+                          type="file"
+                          class="form-control"
+                          placeholder="Adjunto 1"
+                          formControlName="attachmentOne"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="projectinput4" class="sr-only"
+                    <div class="form-group row">
+                      <label for="projectinput4" class="col-md-3 col-form-label"
                         >Adjunto 2</label
                       >
-                      <input
-                        type="email"
-                        class="form-control"
-                        placeholder="Adjunto 2"
-                        formControlName="attachmentTwo"
-                      />
+                      <div class="col-md-9">
+                        <input
+                          (change)="handleUpload($event, 'attachmentTwo')"
+                          type="file"
+                          class="form-control"
+                          placeholder="Adjunto 2"
+                          formControlName="attachmentTwo"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="projectinput3" class="sr-only"
+                    <div class="form-group row">
+                      <label for="projectinput3" class="col-md-3 col-form-label"
                         >Adjunto 3</label
                       >
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Adjunto 3"
-                        formControlName="attachmentThree"
-                      />
+                      <div class="col-md-9">
+                        <input
+                        (change)="handleUpload($event, 'attachmentThree')"
+                          type="file"
+                          class="form-control"
+                          placeholder="Adjunto 3"
+                          formControlName="attachmentThree"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div class="col-md-6">
