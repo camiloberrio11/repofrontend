@@ -228,6 +228,7 @@
             >
             <div class="col-md-9">
               <input
+                (change)="handleUpload($event, 'attachmentOne')"
                 type="file"
                 class="form-control"
                 formControlName="attachmentOne"
@@ -242,6 +243,7 @@
             >
             <div class="col-md-9">
               <input
+                (change)="handleUpload($event, 'attachmentTwo')"
                 type="file"
                 class="form-control"
                 formControlName="attachmentTwo"
@@ -259,6 +261,7 @@
             >
             <div class="col-md-9">
               <input
+                (change)="handleUpload($event, 'attachmentThree')"
                 class="form-control"
                 type="file"
                 formControlName="attachmentThree"

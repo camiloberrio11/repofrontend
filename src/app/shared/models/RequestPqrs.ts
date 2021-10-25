@@ -1,9 +1,11 @@
+import { AttachmentFile } from './Attachment';
+
 export interface BodyRequestCreatePqr {
   codeRequestType: string;
   codeRequestSubtype: string;
-  attachmentOne: string;
-  attachmentTwo: string;
-  attachmentThree: string;
+  attachmentOne: AttachmentFile;
+  attachmentTwo: AttachmentFile;
+  attachmentThree: AttachmentFile;
   sideVehicle: string;
   idVehicle: string;
   detail: string;

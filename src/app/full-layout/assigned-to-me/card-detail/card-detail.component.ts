@@ -1,19 +1,19 @@
-import { Component, OnInit } from "@angular/core";
-import { Location } from "@angular/common";
-import { Router } from "@angular/router";
-import { RequestPqrsPopulate } from "app/shared/models/RequestPqrs";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { BodyResponseRequest } from "app/shared/models/ResponseRequest";
-import { PqrApiService } from "app/shared/services/pqr-api.service";
-import { NgxSpinnerService } from "ngx-spinner";
-import { ToastrService } from "ngx-toastr";
-import { AuthUserService } from "app/shared/services/auth-user.service";
-import { User } from "app/shared/models/Users";
+import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+import { RequestPqrsPopulate } from 'app/shared/models/RequestPqrs';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BodyResponseRequest } from 'app/shared/models/ResponseRequest';
+import { PqrApiService } from 'app/shared/services/pqr-api.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
+import { AuthUserService } from 'app/shared/services/auth-user.service';
+import { User } from 'app/shared/models/Users';
 
 @Component({
-  selector: "app-card-detail",
-  templateUrl: "./card-detail.component.html",
-  styleUrls: ["./card-detail.component.scss"],
+  selector: 'app-card-detail',
+  templateUrl: './card-detail.component.html',
+  styleUrls: ['./card-detail.component.scss'],
 })
 export class CardDetailComponent implements OnInit {
   pqrDetail: RequestPqrsPopulate;
@@ -40,7 +40,7 @@ export class CardDetailComponent implements OnInit {
   ngOnInit(): void {
     const state: any = this.location.getState();
     if (!state?.pqrInfo) {
-      this.router.navigate(["/assigned-to-me"]);
+      this.router.navigate(['/assigned-to-me']);
       return;
     }
     this.formBuild();
@@ -48,7 +48,7 @@ export class CardDetailComponent implements OnInit {
   }
 
   handleCancel(): void {
-    this.router.navigate(["/assigned-to-me"]);
+    this.router.navigate(['/assigned-to-me']);
   }
 
   handleAssign(): void {
@@ -62,7 +62,7 @@ export class CardDetailComponent implements OnInit {
       (err) => {
         this.spinner.hide();
         console.warn(err);
-        this.toastr.error("Ocurrió un error reasignando esta petición");
+        this.toastr.error('Ocurrió un error reasignando esta petición');
       }
     );
   }
@@ -86,10 +86,10 @@ export class CardDetailComponent implements OnInit {
           `Ha sido actualizaada con éxito la solicitud ${this.pqrDetail?.Id}`
         );
         this.spinner.hide();
-        this.router.navigate(["/assigned-to-me"]);
+        this.router.navigate(['/assigned-to-me']);
       },
       (err) => {
-        this.toastr.error("Ha ocurrido un error actualizando esta solicitud");
+        this.toastr.error('Ha ocurrido un error actualizando esta solicitud');
         this.spinner.hide();
       }
     );
@@ -97,10 +97,10 @@ export class CardDetailComponent implements OnInit {
 
   private formBuild(): void {
     this.formResponsePqr = new FormGroup({
-      answer: new FormControl("", Validators.required),
-      attachmentOne: new FormControl(""),
-      attachmentTwo: new FormControl(""),
-      attachmentThree: new FormControl(""),
+      answer: new FormControl('', Validators.required),
+      attachmentOne: new FormControl(''),
+      attachmentTwo: new FormControl(''),
+      attachmentThree: new FormControl(''),
     });
   }
 
@@ -112,7 +112,7 @@ export class CardDetailComponent implements OnInit {
         this.spinner.hide();
       },
       (err) => {
-        this.toastr.error("Ha ocurrido un error obteniendo usuarios");
+        this.toastr.error('Ha ocurrido un error obteniendo usuarios');
         console.warn(err);
         this.spinner.hide();
       }
