@@ -1,27 +1,28 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { environment } from "environments/environment";
-import { Observable } from "rxjs";
-import { ResponseJourney } from "../models/Journey";
-import { LoginBodyRequest, ResponseLoginService } from "../models/Login";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { environment } from 'environments/environment';
+import { Observable } from 'rxjs';
+import { ResponseJourney } from '../models/Journey';
+import { LoginBodyRequest, ResponseLoginService } from '../models/Login';
+import { ResponseGetReportByType } from '../models/Reports';
 import {
   BodyRequestByStatus,
   BodyRequestCreatePqr,
   ResponseCreatePqr,
   ResponseGetRequestByCode,
   ResponseRequestByStatus,
-} from "../models/RequestPqrs";
+} from '../models/RequestPqrs';
 import {
   BodyResponseRequest,
   ResponseGetByIdRequest,
   ResponseUpdateRequest,
-} from "../models/ResponseRequest";
-import { ResponseTypeDocument } from "../models/TypeDocument";
-import { ResponseTypeRequest } from "../models/TypeRequest";
-import { ResponseServiceUsers } from "../models/Users";
+} from '../models/ResponseRequest';
+import { ResponseTypeDocument } from '../models/TypeDocument';
+import { ResponseTypeRequest } from '../models/TypeRequest';
+import { ResponseServiceUsers } from '../models/Users';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class PqrApiService {
   constructor(private http: HttpClient) {}
@@ -106,10 +107,17 @@ export class PqrApiService {
     );
   }
 
-  reasignRequest(body: { assignedUser: string }, idRequest: string): Observable<any> {
+  reasignRequest(
+    body: { assignedUser: string },
+    idRequest: string
+  ): Observable<any> {
     return this.http.put(
       `${environment?.urlApi}/api/request/assign/${idRequest}`,
       body
     );
+  }
+
+  getReportByType(): Observable<ResponseGetReportByType> {
+    return this.http.get<ResponseGetReportByType>(`${environment?.urlApi}/api/report/type`);
   }
 }
