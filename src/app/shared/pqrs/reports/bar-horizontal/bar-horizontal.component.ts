@@ -26,6 +26,7 @@ export class BarHorizontalComponent implements OnChanges {
 
   ngOnChanges(): void {
     this.singleLine = this.data
+    console.log(this.data);
     // Object.assign(this, { singleLine });
   }
 }

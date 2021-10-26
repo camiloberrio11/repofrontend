@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PqrApiService } from 'app/shared/services/pqr-api.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { multi } from './data';
-import { single } from './single';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,48 +23,61 @@ export class DashboardComponent {
   yAxisLabel: string = 'Population';
   timeline: boolean = true;
 
-  // Torta
-  single: any[];
-  viewDon: any[] = [700, 400];
-  gradient: boolean = true;
-  showLegend: boolean = true;
-  showLabelsDon: boolean = true;
-  isDoughnut: boolean = false;
-  legendPosition: string = 'below';
-
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'],
   };
 
-  colorSchemeDon = {
-    domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5'],
-  };
-
-
-
-  dataBarHorizontal: {name: string, value: number}[] = [];
+  dataBarHorizontal: { name: string; value: number }[] = [];
+  dataChartsPie: { name: string; value: number }[] = [];
 
   constructor(
     private spinnerService: NgxSpinnerService,
     private pqrApi: PqrApiService
   ) {
     this.getReportType();
+    this.getReportSubtype();
     Object.assign(this, { multi });
-    Object.assign(this, { single });
   }
 
   private getReportType(): void {
-    this.dataBarHorizontal = [];
     this.spinnerService.show();
-    this.pqrApi.getReportByType().subscribe(repo => {
-      for (const iterator of repo?.data) {
-        this.dataBarHorizontal.push({name: iterator?.requesttypes[0]?.Name, value: iterator?.count})
+    this.pqrApi.getReportByType().subscribe(
+      (repo) => {
+        const listComplete: any[] = [];
+        for (const iterator of repo?.data) {
+          listComplete.push({
+            name: iterator?.requesttypes[0]?.Name,
+            value: iterator?.count,
+          });
+        }
+        this.dataBarHorizontal = listComplete;
+        this.spinnerService.hide();
+      },
+      (err) => {
+        this.spinnerService.hide();
+        console.log(err);
       }
-      console.log(this.dataBarHorizontal)
-      this.spinnerService.hide();
-    }, err => {
-      this.spinnerService.hide();
-      console.log(err);
-    });
+    );
+  }
+
+  private getReportSubtype(): void {
+    this.spinnerService.show();
+    this.pqrApi.getReportBySubtype().subscribe(
+      (repo) => {
+        const listComplete: any[] = [];
+        for (const iterator of repo?.data) {
+          listComplete.push({
+            name: iterator?.requestsubtypes[0]?.Name,
+            value: iterator?.count,
+          });
+        }
+        this.dataChartsPie = listComplete;
+        this.spinnerService.hide();
+      },
+      (err) => {
+        this.spinnerService.hide();
+        console.log(err);
+      }
+    );
   }
 }

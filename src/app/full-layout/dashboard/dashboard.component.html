@@ -34,22 +34,12 @@
   <div class="col-sm-12">
     <div class="card">
       <div class="card-header">
-        <h4 class="card-title">Line Chart</h4>
+        <h4 class="card-title">Reporte por sub tipos</h4>
       </div>
       <div class="card-content">
         <div class="card-body">
           <div id="line-chart1">
-            <ngx-charts-pie-chart
-              [view]="viewDon"
-              [scheme]="colorSchemeDon"
-              [results]="single"
-              [gradient]="gradient"
-              [legend]="showLegend"
-              [legendPosition]="legendPosition"
-              [labels]="showLabelsDon"
-              [doughnut]="isDoughnut"
-            >
-            </ngx-charts-pie-chart>
+            <app-charts-pie [data]="dataChartsPie"></app-charts-pie>
           </div>
         </div>
       </div>
@@ -62,7 +52,7 @@
   <div class="col-sm-12">
     <div class="card">
       <div class="card-header">
-        <h4 class="card-title">Line Chart</h4>
+        <h4 class="card-title">Reporte por tipos</h4>
       </div>
       <div class="card-content">
         <div class="card-body">
