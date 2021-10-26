@@ -5,3 +5,17 @@ textarea {
 input {
   text-transform: uppercase;
 }
+
+.checkterms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin: 0;
+    margin-left: 5px;
+  }
+  a {
+    color: #08009b;
+    font-weight: bold;
+  }
+}

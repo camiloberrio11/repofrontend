@@ -197,6 +197,7 @@ export class FormPqrsCreateComponent implements OnInit {
       addressSender: new FormControl('', Validators.required),
       emailSender: new FormControl('', Validators.required),
       phoneSender: new FormControl('', Validators.required),
+      terms: new FormControl(false, Validators.required)
     });
   }
 
