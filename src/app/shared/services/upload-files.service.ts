@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 export class UploadFilesService {
   constructor() {}
 
-  getExtensionFile(nameFile: string): string {
-    return nameFile.split('.').pop();
+  getExtensionFile(nameFile: string = ''): string {
+    return nameFile?.split('.').pop();
   }
 
   extensionValidFile(extensionFile: string): boolean {

@@ -1,0 +1,4 @@
+<p *ngIf="!urlImage" class="noattachment">Sin adjunto</p>
+<a *ngIf="urlImage" [href]="urlImage" target="”_blank”" rel="”noopener">
+  <img [src]="srcImg" alt="adjunto-one" width="150" height="150" />
+</a>

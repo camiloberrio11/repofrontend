@@ -244,43 +244,17 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <p>Adjunto 1</p>
-                    <p *ngIf="!pqrDetail?.AttachmentOne" class="noattachment">
-                      Sin adjunto
-                    </p>
-                    <a
-                      *ngIf="pqrDetail?.AttachmentOne"
-                      [href]="pqrDetail?.AttachmentOne"
-                      target="”_blank”"
-                      rel="”noopener"
-                    >
-                      <img
-                        [src]="pqrDetail?.AttachmentOne"
-                        alt="adjunto-one"
-                        width="150"
-                        height="150"
-                      />
-                    </a>
+                    <app-image-attachment
+                      [urlImage]="pqrDetail?.AttachmentOne"
+                    ></app-image-attachment>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <p>Adjunto 2</p>
-                    <p *ngIf="!pqrDetail?.AttachmentTwo" class="noattachment">
-                      Sin adjunto
-                    </p>
-                    <a
-                      *ngIf="pqrDetail?.AttachmentTwo"
-                      [href]="pqrDetail?.AttachmentTwo"
-                      target="”_blank”"
-                      rel="”noopener"
-                    >
-                      <img
-                        [src]="pqrDetail?.AttachmentTwo"
-                        alt="adjunto-one"
-                        width="150"
-                        height="150"
-                      />
-                    </a>
+                    <app-image-attachment
+                      [urlImage]="pqrDetail?.AttachmentTwo"
+                    ></app-image-attachment>
                   </div>
                 </div>
               </div>
@@ -288,22 +262,9 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <p>Adjunto 3</p>
-                    <p *ngIf="!pqrDetail?.AttachmentThree" class="noattachment">
-                      Sin adjunto
-                    </p>
-                    <a
-                      *ngIf="pqrDetail?.AttachmentThree"
-                      [href]="pqrDetail?.AttachmentThree"
-                      target="”_blank”"
-                      rel="”noopener"
-                    >
-                      <img
-                        [src]="pqrDetail?.AttachmentThree"
-                        alt="adjunto-one"
-                        width="150"
-                        height="150"
-                      />
-                    </a>
+                    <app-image-attachment
+                      [urlImage]="pqrDetail?.AttachmentThree"
+                    ></app-image-attachment>
                   </div>
                 </div>
               </div>
@@ -362,7 +323,7 @@
                       >
                       <div class="col-md-9">
                         <input
-                        (change)="handleUpload($event, 'attachmentOne')"
+                          (change)="handleUpload($event, 'attachmentOne')"
                           type="file"
                           class="form-control"
                           placeholder="Adjunto 1"
@@ -396,7 +357,7 @@
                       >
                       <div class="col-md-9">
                         <input
-                        (change)="handleUpload($event, 'attachmentThree')"
+                          (change)="handleUpload($event, 'attachmentThree')"
                           type="file"
                           class="form-control"
                           placeholder="Adjunto 3"

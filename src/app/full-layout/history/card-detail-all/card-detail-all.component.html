@@ -193,13 +193,10 @@
                     >Adjunto 1</label
                   >
                   <div class="col-md-9">
-                    <input
-                      type="text"
-                      class="form-control square"
-                      [value]="pqrDetail?.AttachmentOne"
-                      disabled
-                      readonly
-                    />
+                    <app-image-attachment
+                    [urlImage]="pqrDetail?.AttachmentOne"
+                  ></app-image-attachment>
+                  
                   </div>
                 </div>
               </div>
@@ -209,13 +206,9 @@
                     >Adjunto 2</label
                   >
                   <div class="col-md-9">
-                    <input
-                      type="text"
-                      class="form-control square"
-                      [value]="pqrDetail?.AttachmentTwo"
-                      disabled
-                      readonly
-                    />
+                    <app-image-attachment
+                      [urlImage]="pqrDetail?.AttachmentTwo"
+                    ></app-image-attachment>
                   </div>
                 </div>
               </div>
@@ -228,13 +221,9 @@
                     >Adjunto 3</label
                   >
                   <div class="col-md-9">
-                    <input
-                      type="text"
-                      class="form-control square"
-                      [value]="pqrDetail?.AttachmentThree"
-                      disabled
-                      readonly
-                    />
+                    <app-image-attachment
+                      [urlImage]="pqrDetail?.AttachmentThree"
+                    ></app-image-attachment>
                   </div>
                 </div>
               </div>
@@ -306,13 +295,9 @@
                     >Adjunto 1</label
                   >
                   <div class="col-md-9">
-                    <input
-                      type="text"
-                      class="form-control square"
-                      [value]="reponseToPqr?.AttachmentOne"
-                      disabled
-                      readonly
-                    />
+                    <app-image-attachment
+                      [urlImage]="reponseToPqr?.AttachmentOne"
+                    ></app-image-attachment>
                   </div>
                 </div>
               </div>
@@ -322,13 +307,9 @@
                     >Adjunto 2</label
                   >
                   <div class="col-md-9">
-                    <input
-                      type="text"
-                      class="form-control square"
-                      [value]="reponseToPqr?.AttachmentTwo"
-                      disabled
-                      readonly
-                    />
+                    <app-image-attachment
+                      [urlImage]="reponseToPqr?.AttachmentTwo"
+                    ></app-image-attachment>
                   </div>
                 </div>
               </div>
@@ -340,13 +321,9 @@
                     >Adjunto 3</label
                   >
                   <div class="col-md-9">
-                    <input
-                      type="text"
-                      class="form-control square"
-                      [value]="reponseToPqr?.AttachmentThree"
-                      disabled
-                      readonly
-                    />
+                    <app-image-attachment
+                      [urlImage]="reponseToPqr?.AttachmentThree"
+                    ></app-image-attachment>
                   </div>
                 </div>
               </div>
@@ -368,9 +345,6 @@
                 </div>
               </div>
             </div>
-            <!-- <button type="button" class="btn btn-primary mr-2">
-                <i class="ft-check-square mr-1"></i>Save
-              </button> -->
             <div class="d-flex align-items-center justify-content-center">
               <button
                 type="button"

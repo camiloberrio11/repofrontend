@@ -36,6 +36,7 @@ import { NgSelectModule } from "@ng-select/ng-select";
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
 import { CardResultPqrsComponent } from './pqrs/card-result-pqrs/card-result-pqrs.component';
+import { ImageAttachmentComponent } from './pqrs/image-attachment/image-attachment.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { CardResultPqrsComponent } from './pqrs/card-result-pqrs/card-result-pqr
         NgbModule,
         FormPqrsCreateComponent,
         FormPqrsFindComponent,
+        ImageAttachmentComponent
     ],
     imports: [
         RouterModule,
@@ -88,6 +90,7 @@ import { CardResultPqrsComponent } from './pqrs/card-result-pqrs/card-result-pqr
         FormPqrsFindComponent,
         FormPqrsCreateComponent,
         CardResultPqrsComponent,
+        ImageAttachmentComponent,
     ]
 })
 export class SharedModule { }

@@ -5,6 +5,7 @@ import { HistoryRoutingModule } from './history-routing.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { CardDetailAllComponent } from './card-detail-all/card-detail-all.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from 'app/shared/shared.module';
 
 @NgModule({
   declarations: [HistoryComponent, CardDetailAllComponent],
@@ -12,7 +13,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     HistoryRoutingModule,
     NgbModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    SharedModule
   ]
 })
 export class HistoryModule { }
