@@ -1,12 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { multi } from "./data";
-import { single } from "./single";
-import { singleLine } from './line';
+import { Component, OnInit } from '@angular/core';
+import { PqrApiService } from 'app/shared/services/pqr-api.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { multi } from './data';
+import { single } from './single';
 
 @Component({
-  selector: "app-dashboard",
-  templateUrl: "./dashboard.component.html",
-  styleUrls: ["./dashboard.component.scss"],
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
   // options line
@@ -19,8 +20,8 @@ export class DashboardComponent {
   yAxis: boolean = true;
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
-  xAxisLabel: string = "Year";
-  yAxisLabel: string = "Population";
+  xAxisLabel: string = 'Year';
+  yAxisLabel: string = 'Population';
   timeline: boolean = true;
 
   // Torta
@@ -30,38 +31,41 @@ export class DashboardComponent {
   showLegend: boolean = true;
   showLabelsDon: boolean = true;
   isDoughnut: boolean = false;
-  legendPosition: string = "below";
+  legendPosition: string = 'below';
 
   colorScheme = {
-    domain: ["#5AA454", "#A10A28", "#C7B42C", "#AAAAAA"],
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'],
   };
 
   colorSchemeDon = {
-    domain: ["#5AA454", "#E44D25", "#CFC0BB", "#7aa3e5", "#a8385d", "#aae3f5"],
+    domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5'],
   };
 
 
-  // Lines
-  singleLine: any[];
-  viewLine: any[] = [700, 400];
 
-  // options
-  showXAxis: boolean = true;
-  showYAxis: boolean = true;
-  gradientLine: boolean = false;
-  showLegendLine: boolean = true;
-  showXAxisLabelLine: boolean = true;
-  yAxisLabelLine: string = 'Country';
-  showYAxisLabelLine: boolean = true;
-  xAxisLabelLine: string = 'Population';
+  dataBarHorizontal: {name: string, value: number}[] = [];
 
-  colorSchemeLine = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-  };
-
-  constructor() {
+  constructor(
+    private spinnerService: NgxSpinnerService,
+    private pqrApi: PqrApiService
+  ) {
+    this.getReportType();
     Object.assign(this, { multi });
     Object.assign(this, { single });
-    Object.assign(this, { singleLine });
+  }
+
+  private getReportType(): void {
+    this.dataBarHorizontal = [];
+    this.spinnerService.show();
+    this.pqrApi.getReportByType().subscribe(repo => {
+      for (const iterator of repo?.data) {
+        this.dataBarHorizontal.push({name: iterator?.requesttypes[0]?.Name, value: iterator?.count})
+      }
+      console.log(this.dataBarHorizontal)
+      this.spinnerService.hide();
+    }, err => {
+      this.spinnerService.hide();
+      console.log(err);
+    });
   }
 }
