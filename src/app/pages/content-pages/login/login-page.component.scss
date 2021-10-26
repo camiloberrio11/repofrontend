@@ -16,3 +16,15 @@
 .fo-bg {
   background: linear-gradient(to right, #08009b, #a2dbfa);
 }
+
+.pass {
+  position: relative;
+}
+
+.eyepass {
+  position: absolute;
+  top: 8px;
+  right: 0px;
+  border: none;
+  background-color: transparent;
+}

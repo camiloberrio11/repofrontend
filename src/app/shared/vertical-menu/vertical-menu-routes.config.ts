@@ -1,14 +1,15 @@
-import { RouteInfo } from './vertical-menu.metadata';
+import { RouteInfo } from "./vertical-menu.metadata";
 
 //Sidebar menu Routes and data
 export const ROUTES: RouteInfo[] = [
   {
     path: "/dashboard",
-    title: "Tablero",
+    title: "Tableros",
     icon: "ft-pie-chart",
     class: "dropdown nav-item",
     isExternalLink: false,
     submenu: [],
+    validateAdmin: true,
   },
   {
     path: "/assigned-to-me",
@@ -17,6 +18,7 @@ export const ROUTES: RouteInfo[] = [
     class: "dropdown nav-item",
     isExternalLink: false,
     submenu: [],
+    validateAdmin: false,
   },
   {
     path: "/history",
@@ -25,5 +27,6 @@ export const ROUTES: RouteInfo[] = [
     class: "dropdown nav-item",
     isExternalLink: false,
     submenu: [],
+    validateAdmin: false,
   },
 ];

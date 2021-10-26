@@ -6,6 +6,7 @@ import { CardPqrsResumeComponent } from './card-pqrs-resume/card-pqrs-resume.com
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { CardDetailComponent } from './card-detail/card-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'app/shared/shared.module';
 
 @NgModule({
   declarations: [AssignedToMeComponent, CardPqrsResumeComponent, CardDetailComponent],
@@ -15,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgxSpinnerModule,
     FormsModule ,
     ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class AssignedToMeModule { }

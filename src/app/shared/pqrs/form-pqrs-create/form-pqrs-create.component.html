@@ -197,7 +197,7 @@
               <input
                 type="text"
                 class="form-control"
-                placeholder="Ingresa tu nombre"
+                placeholder="Ingresa tu número celular"
                 formControlName="phoneSender"
               />
             </div>
@@ -228,6 +228,7 @@
             >
             <div class="col-md-9">
               <input
+                (change)="handleUpload($event, 'attachmentOne')"
                 type="file"
                 class="form-control"
                 formControlName="attachmentOne"
@@ -242,6 +243,7 @@
             >
             <div class="col-md-9">
               <input
+                (change)="handleUpload($event, 'attachmentTwo')"
                 type="file"
                 class="form-control"
                 formControlName="attachmentTwo"
@@ -259,6 +261,7 @@
             >
             <div class="col-md-9">
               <input
+                (change)="handleUpload($event, 'attachmentThree')"
                 class="form-control"
                 type="file"
                 formControlName="attachmentThree"
@@ -282,6 +285,24 @@
         </div>
       </div>
 
+      <div class="checkterms">
+        <input
+          type="checkbox"
+          formControlName="terms"
+          [checked]="formCreatePqr?.get('terms')?.value"
+        />
+        <p>
+          Acepto
+          <a
+            class="primary"
+            href="https://www.flotaospina.com/documentos"
+            target="_blank"
+            rel="”noopener"
+            >Política de privacidad y protección de datos</a
+          >
+        </p>
+      </div>
+
       <div
         class="
           col-12
@@ -295,7 +316,7 @@
           type="submit"
           class="btn btn-primary mb-2 mb-sm-0 mr-sm-2"
           (click)="onSubmit()"
-          [disabled]="formCreatePqr?.invalid"
+          [disabled]="formCreatePqr?.invalid || !formCreatePqr?.get('terms')?.value"
         >
           Crear solicitud
         </button>

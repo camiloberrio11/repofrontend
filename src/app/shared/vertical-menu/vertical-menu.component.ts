@@ -18,6 +18,7 @@ import { DeviceDetectorService } from "ngx-device-detector";
 import { ConfigService } from "../services/config.service";
 import { Subscription } from "rxjs";
 import { LayoutService } from "../services/layout.service";
+import { AuthUserService } from '../services/auth-user.service';
 
 @Component({
   selector: "app-sidebar",
@@ -43,7 +44,8 @@ export class VerticalMenuComponent implements OnInit, AfterViewInit, OnDestroy {
     private layoutService: LayoutService,
     private configService: ConfigService,
     private cdr: ChangeDetectorRef,
-    private deviceService: DeviceDetectorService
+    private deviceService: DeviceDetectorService,
+    private authUserService: AuthUserService
   ) {
     this.config = this.configService.templateConf;
     this.innerWidth = window.innerWidth;
@@ -51,6 +53,11 @@ export class VerticalMenuComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
+    const userRol = this.authUserService.authRolUser?.data;
+    if (!userRol?.admin) {
+      this.menuItems = ROUTES.filter(ite => ite.validateAdmin === false);
+      return;
+    }
     this.menuItems = ROUTES;
   }
 

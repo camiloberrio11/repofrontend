@@ -9,6 +9,7 @@ export const HROUTES: RouteInfo[] = [
     class: "dropdown nav-item",
     isExternalLink: false,
     submenu: [],
+    validateAdmin: true
   },
   {
     path: "/assigned-to-me",
@@ -17,6 +18,8 @@ export const HROUTES: RouteInfo[] = [
     class: "dropdown nav-item",
     isExternalLink: false,
     submenu: [],
+    validateAdmin: false
+
   },
   {
     path: "/history",
@@ -25,5 +28,7 @@ export const HROUTES: RouteInfo[] = [
     class: "dropdown nav-item",
     isExternalLink: false,
     submenu: [],
+    validateAdmin: false
+
   },
 ];
