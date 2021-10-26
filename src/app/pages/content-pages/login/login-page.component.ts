@@ -14,6 +14,7 @@ import { ToastrService } from "ngx-toastr";
 export class LoginPageComponent {
   loginFormSubmitted = false;
   isLoginFailed = false;
+  viewPassword = false;
 
   loginForm = new FormGroup({
     username: new FormControl("", [Validators.required]),

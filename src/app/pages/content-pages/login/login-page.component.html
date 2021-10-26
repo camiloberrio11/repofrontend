@@ -56,12 +56,13 @@
                       "
                       class="help-block mt-1 text-danger"
                     >
-                      <i class="ft-alert-circle align-middle"></i> Este campo es obligatorio
+                      <i class="ft-alert-circle align-middle"></i> Este campo es
+                      obligatorio
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group pass">
                     <input
-                      type="password"
+                      [type]="!viewPassword ? 'password' : 'text'"
                       formControlName="password"
                       class="form-control"
                       placeholder="Contraseña"
@@ -71,6 +72,18 @@
                       }"
                       required
                     />
+                    <button
+                      (click)="viewPassword = !viewPassword"
+                      class="primary p-0 eyepass"
+                    >
+                      <i
+                        [ngClass]="[
+                          viewPassword
+                            ? 'ft-eye-off font-medium-3 mr-2'
+                            : 'ft-eye font-medium-3 mr-2'
+                        ]"
+                      ></i>
+                    </button>
                     <div
                       *ngIf="
                         loginFormSubmitted &&
