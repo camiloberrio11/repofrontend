@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { multi } from "./data";
-import { single } from "./single";
-import { singleLine } from './line';
+import { Component, OnInit } from '@angular/core';
+import { PqrApiService } from 'app/shared/services/pqr-api.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { multi } from './data';
 
 @Component({
-  selector: "app-dashboard",
-  templateUrl: "./dashboard.component.html",
-  styleUrls: ["./dashboard.component.scss"],
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
   // options line
@@ -19,49 +19,65 @@ export class DashboardComponent {
   yAxis: boolean = true;
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
-  xAxisLabel: string = "Year";
-  yAxisLabel: string = "Population";
+  xAxisLabel: string = 'Year';
+  yAxisLabel: string = 'Population';
   timeline: boolean = true;
 
-  // Torta
-  single: any[];
-  viewDon: any[] = [700, 400];
-  gradient: boolean = true;
-  showLegend: boolean = true;
-  showLabelsDon: boolean = true;
-  isDoughnut: boolean = false;
-  legendPosition: string = "below";
-
   colorScheme = {
-    domain: ["#5AA454", "#A10A28", "#C7B42C", "#AAAAAA"],
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'],
   };
 
-  colorSchemeDon = {
-    domain: ["#5AA454", "#E44D25", "#CFC0BB", "#7aa3e5", "#a8385d", "#aae3f5"],
-  };
+  dataBarHorizontal: { name: string; value: number }[] = [];
+  dataChartsPie: { name: string; value: number }[] = [];
 
-
-  // Lines
-  singleLine: any[];
-  viewLine: any[] = [700, 400];
-
-  // options
-  showXAxis: boolean = true;
-  showYAxis: boolean = true;
-  gradientLine: boolean = false;
-  showLegendLine: boolean = true;
-  showXAxisLabelLine: boolean = true;
-  yAxisLabelLine: string = 'Country';
-  showYAxisLabelLine: boolean = true;
-  xAxisLabelLine: string = 'Population';
-
-  colorSchemeLine = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-  };
-
-  constructor() {
+  constructor(
+    private spinnerService: NgxSpinnerService,
+    private pqrApi: PqrApiService
+  ) {
+    this.getReportType();
+    this.getReportSubtype();
     Object.assign(this, { multi });
-    Object.assign(this, { single });
-    Object.assign(this, { singleLine });
+  }
+
+  private getReportType(): void {
+    this.spinnerService.show();
+    this.pqrApi.getReportByType().subscribe(
+      (repo) => {
+        const listComplete: any[] = [];
+        for (const iterator of repo?.data) {
+          listComplete.push({
+            name: iterator?.requesttypes[0]?.Name,
+            value: iterator?.count,
+          });
+        }
+        this.dataBarHorizontal = listComplete;
+        this.spinnerService.hide();
+      },
+      (err) => {
+        this.spinnerService.hide();
+        console.log(err);
+      }
+    );
+  }
+
+  private getReportSubtype(): void {
+    this.spinnerService.show();
+    this.pqrApi.getReportBySubtype().subscribe(
+      (repo) => {
+        const listComplete: any[] = [];
+        for (const iterator of repo?.data) {
+          listComplete.push({
+            name: iterator?.requestsubtypes[0]?.Name,
+            value: iterator?.count,
+          });
+        }
+        this.dataChartsPie = listComplete;
+        this.spinnerService.hide();
+      },
+      (err) => {
+        this.spinnerService.hide();
+        console.log(err);
+      }
+    );
   }
 }

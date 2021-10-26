@@ -4,7 +4,7 @@ import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { ResponseJourney } from '../models/Journey';
 import { LoginBodyRequest, ResponseLoginService } from '../models/Login';
-import { ResponseGetReportByType } from '../models/Reports';
+import { ResponseGetReportBySubtype, ResponseGetReportByType } from '../models/Reports';
 import {
   BodyRequestByStatus,
   BodyRequestCreatePqr,
@@ -119,5 +119,9 @@ export class PqrApiService {
 
   getReportByType(): Observable<ResponseGetReportByType> {
     return this.http.get<ResponseGetReportByType>(`${environment?.urlApi}/api/report/type`);
+  }
+
+  getReportBySubtype(): Observable<ResponseGetReportBySubtype> {
+    return this.http.get<ResponseGetReportBySubtype>(`${environment?.urlApi}/api/report/subtype`);
   }
 }

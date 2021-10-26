@@ -37,6 +37,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
 import { CardResultPqrsComponent } from './pqrs/card-result-pqrs/card-result-pqrs.component';
 import { ImageAttachmentComponent } from './pqrs/image-attachment/image-attachment.component';
+import { LineChartComponent } from './pqrs/reports/line-chart/line-chart.component';
+import { ChartsPieComponent } from './pqrs/reports/charts-pie/charts-pie.component';
+import { BarHorizontalComponent } from './pqrs/reports/bar-horizontal/bar-horizontal.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 @NgModule({
@@ -54,7 +58,10 @@ import { ImageAttachmentComponent } from './pqrs/image-attachment/image-attachme
         NgbModule,
         FormPqrsCreateComponent,
         FormPqrsFindComponent,
-        ImageAttachmentComponent
+        ImageAttachmentComponent,
+        BarHorizontalComponent,
+        ChartsPieComponent,
+        LineChartComponent
     ],
     imports: [
         RouterModule,
@@ -69,6 +76,7 @@ import { ImageAttachmentComponent } from './pqrs/image-attachment/image-attachme
         AutocompleteModule,
         PipeModule,
         NgSelectModule,
+        NgxChartsModule,
         ToastrModule.forRoot(),
     ],
     declarations: [
@@ -91,6 +99,9 @@ import { ImageAttachmentComponent } from './pqrs/image-attachment/image-attachme
         FormPqrsCreateComponent,
         CardResultPqrsComponent,
         ImageAttachmentComponent,
+        LineChartComponent,
+        ChartsPieComponent,
+        BarHorizontalComponent,
     ]
 })
 export class SharedModule { }
