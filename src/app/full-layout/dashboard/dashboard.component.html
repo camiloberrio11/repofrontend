@@ -1,94 +1,70 @@
+<ngx-spinner></ngx-spinner>
 <div class="row">
   <div class="col-sm-12">
-      <div class="card">
-          <div class="card-header">
-              <h4 class="card-title">Line Chart</h4>
-          </div>
-          <div class="card-content">
-              <div class="card-body">
-                  <div id="line-chart1" >
-                    <ngx-charts-line-chart
-                    [view]="view"
-                    [scheme]="colorScheme"
-                    [legend]="legend"
-                    [showXAxisLabel]="showXAxisLabel"
-                    [showYAxisLabel]="showYAxisLabel"
-                    [xAxis]="xAxis"
-                    [yAxis]="yAxis"
-                    [xAxisLabel]="xAxisLabel"
-                    [yAxisLabel]="yAxisLabel"
-                    [timeline]="timeline"
-                    [results]="multi"
-                    >
-                  </ngx-charts-line-chart>
-                  </div>
-              </div>
-          </div>
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Line Chart</h4>
       </div>
+      <div class="card-content">
+        <div class="card-body">
+          <div id="line-chart1">
+            <ngx-charts-line-chart
+              [view]="view"
+              [scheme]="colorScheme"
+              [legend]="legend"
+              [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel"
+              [xAxis]="xAxis"
+              [yAxis]="yAxis"
+              [xAxisLabel]="xAxisLabel"
+              [yAxisLabel]="yAxisLabel"
+              [timeline]="timeline"
+              [results]="multi"
+            >
+            </ngx-charts-line-chart>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- tortas -->
 <div class="row">
   <div class="col-sm-12">
-      <div class="card">
-          <div class="card-header">
-              <h4 class="card-title">Line Chart</h4>
-          </div>
-          <div class="card-content">
-              <div class="card-body">
-                  <div id="line-chart1" >
-                    <ngx-charts-pie-chart
-                    [view]="viewDon"
-                    [scheme]="colorSchemeDon"
-                    [results]="single"
-                    [gradient]="gradient"
-                    [legend]="showLegend"
-                    [legendPosition]="legendPosition"
-                    [labels]="showLabelsDon"
-                    [doughnut]="isDoughnut"
-
-                    >
-                  </ngx-charts-pie-chart>
-                  </div>
-              </div>
-          </div>
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Reporte por sub tipos</h4>
       </div>
+      <div class="card-content">
+        <div class="card-body">
+          <div id="line-chart1">
+            <app-charts-pie [data]="dataChartsPie"></app-charts-pie>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-
 
 <!-- lines -->
 <div class="row">
   <div class="col-sm-12">
-      <div class="card">
-          <div class="card-header">
-              <h4 class="card-title">Line Chart</h4>
-          </div>
-          <div class="card-content">
-              <div class="card-body">
-                  <div id="line-chart1" >
-                    <ngx-charts-bar-horizontal
-                    [view]="viewLine"
-                    [scheme]="colorSchemeLine"
-                    [results]="singleLine"
-                    [gradient]="gradientLine"
-                    [xAxis]="showXAxisLabelLine"
-                    [yAxis]="showYAxisLabelLine"
-                    [legend]="showLegend"
-                    [showXAxisLabel]="showXAxisLabelLine"
-                    [showYAxisLabel]="showYAxisLabelLine"
-                    [xAxisLabel]="xAxisLabelLine"
-                    [yAxisLabel]="yAxisLabelLine"
-                  >
-                  </ngx-charts-bar-horizontal>
-
-                  </div>
-              </div>
-          </div>
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Reporte por tipos</h4>
       </div>
+      <div class="card-content">
+        <div class="card-body">
+          <div id="line-chart1">
+            <app-bar-horizontal
+              [columnX]="'Cantidad'"
+              [columnY]="'Tipo'"
+              [data]="dataBarHorizontal"
+            ></app-bar-horizontal>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-
