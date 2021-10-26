@@ -51,11 +51,13 @@ export class FormPqrsCreateComponent implements OnInit {
       this.toastr.warning(
         'Este adjunto no puede ser subido, el tamaño debe ser menor a 85Kb'
       );
+      event.target.value = '';
       return;
     }
     const extension = this.uploadFilesService.getExtensionFile(file?.name);
     if (!this.uploadFilesService.extensionValidFile(extension)) {
       this.toastr.warning('Este adjunto no puede extensión/formato válido');
+      event.target.value = '';
       return;
     }
     const reader = new FileReader();
