@@ -10,5 +10,6 @@ export interface ResponseLoginService {
     admin: boolean;
     manager: boolean;
     user: string;
+    nameuser: string;
   };
 }
