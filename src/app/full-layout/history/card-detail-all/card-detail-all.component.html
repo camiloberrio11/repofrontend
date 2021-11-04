@@ -4,12 +4,92 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">
+          <h4 class="card-title titlerequest">
             Historial de solicitud: {{ pqrDetail?.Id }}
           </h4>
         </div>
         <div class="card-content">
           <div class="card-body">
+
+            <hr />
+            <div class="card-header">
+              <h4 class="card-title mb-4">Datos usuario</h4>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-1"
+                    >Nombre</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="pqrDetail?.NameSender"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-2"
+                    >Correo</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="pqrDetail?.EmailSender"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-1"
+                    >N° Celular</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="pqrDetail?.PhoneSender"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="horizontal-form-2"
+                    >Dirección</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control square"
+                      [value]="pqrDetail?.AddressSender"
+                      disabled
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <hr />
+            <div class="card-header">
+              <h4 class="card-title mb-4">Detalle solicitud</h4>
+            </div>
             <div class="row">
               <div class="col-md-6 col-12">
                 <div class="form-group row">
@@ -196,7 +276,7 @@
                     <app-image-attachment
                     [urlImage]="pqrDetail?.AttachmentOne"
                   ></app-image-attachment>
-                  
+
                   </div>
                 </div>
               </div>
