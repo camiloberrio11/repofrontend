@@ -57,9 +57,9 @@ export class CardDetailComponent implements OnInit {
   handleUpload(event, formcontrolname: string) {
 
     const file = event.target.files[0];
-    if (file?.size > 85000) {
+    if (file?.size > 300000) {
       this.toastr.warning(
-        'Este adjunto no puede ser subido, el tamaño debe ser menor a 85Kb'
+        'Este adjunto no puede ser subido, el tamaño debe ser menor a 300Kb'
       );
       event.target.value = '';
       return;
